@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from 'react';
 import CustomRequestContent from './CustomRequestContent';
 import CustomRequestForm from './CustomRequestForm';
+import { useToast } from "@/hooks/use-toast";
 
 const customOptions = [
   {
@@ -20,7 +21,9 @@ const customOptions = [
 
 const CustomRequest = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedOptions, setSelectedOptions] = useState<Record<string, string[]>>({});
   const sectionRef = useRef<HTMLElement>(null);
+  const { toast } = useToast();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -48,6 +51,22 @@ const CustomRequest = () => {
     };
   }, []);
 
+  const handleSelectionChange = (selection: Record<string, string[]>) => {
+    setSelectedOptions(selection);
+    
+    // Show toast when user makes first selection
+    const totalSelected = Object.values(selection).reduce(
+      (sum, options) => sum + options.length, 0
+    );
+    
+    if (totalSelected === 1) {
+      toast({
+        title: "Option selected",
+        description: "Great choice! You can select multiple options from each category.",
+      });
+    }
+  };
+
   return (
     <section 
       id="custom" 
@@ -57,13 +76,17 @@ const CustomRequest = () => {
       <div className="custom-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <CustomRequestContent isVisible={isVisible} customOptions={customOptions} />
+          <CustomRequestContent 
+            isVisible={isVisible} 
+            customOptions={customOptions} 
+            onSelectionChange={handleSelectionChange}
+          />
           
           {/* Form */}
           <div className={`relative ${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
             <div className="bg-white shadow-lg rounded-lg p-8">
               <h3 className="text-xl font-serif font-medium mb-6">Request a Custom Design</h3>
-              <CustomRequestForm />
+              <CustomRequestForm selectedOptions={selectedOptions} />
             </div>
             
             {/* Decorative element */}
