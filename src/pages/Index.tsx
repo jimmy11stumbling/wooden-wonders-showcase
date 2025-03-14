@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Catalog from "@/components/Catalog";
 import CustomRequest from "@/components/CustomRequest";
 import Testimonials from "@/components/Testimonials";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -17,6 +18,7 @@ const Index = () => {
         <Catalog />
         <CustomRequest />
         <Testimonials />
+        <Contact />
       </main>
       <Footer />
     </div>
