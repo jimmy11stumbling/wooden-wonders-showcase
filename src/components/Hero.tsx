@@ -31,7 +31,7 @@ const Hero = () => {
                 size="lg" 
                 className="bg-wood-walnut hover:bg-wood-walnut/90"
               >
-                <Link to="/contact">Get a Quote</Link>
+                <Link to="/quote">Get a Quote</Link>
               </Button>
               <Button 
                 asChild
