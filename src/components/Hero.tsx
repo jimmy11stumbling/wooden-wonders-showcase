@@ -1,33 +1,32 @@
-
 import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background image */}
+      {/* Background image -  Consider replacing with a high-quality image showcasing Laredo, TX or custom cabinetry */}
       <div className="absolute inset-0 -z-10">
         <div 
-          className="w-full h-full bg-[url('https://images.unsplash.com/photo-1525224359517-96e9f27019bd?q=80&w=2663&auto=format&fit=crop')] bg-cover bg-center"
+          className="w-full h-full bg-[url('https://example.com/laredo-cabinetry.jpg')] bg-cover bg-center" {/* Replace with actual image URL */}
           style={{ opacity: 0.9 }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background" />
       </div>
-      
+
       <div className="custom-container">
         <div className="max-w-3xl mx-auto text-center text-white">
           <div className="space-y-6 animate-fade-in">
             <span className="inline-block text-sm uppercase tracking-wider font-medium bg-wood-walnut/90 px-3 py-1 rounded-full">
-              Handcrafted Excellence
+              Handcrafted Excellence Since 2013
             </span>
-            
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold leading-tight md:leading-tight lg:leading-tight">
-              Where Nature Meets <br /> Artistry in Wood
+              Cabinets by Design <br /> Laredo, TX
             </h1>
-            
+
             <p className="text-base md:text-lg text-white/80 max-w-xl mx-auto text-balance">
-              Each piece tells a story of craftsmanship, sustainability, and timeless design. Discover furniture that transforms spaces and lasts generations.
+              Laredo's premier custom cabinet maker, crafting bespoke cabinetry for over 10 years.  We transform spaces with timeless designs and exceptional craftsmanship.
             </p>
-            
+
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a 
                 href="#catalog" 
@@ -45,7 +44,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <a href="#about" aria-label="Scroll to about section">
