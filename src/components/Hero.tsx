@@ -15,7 +15,7 @@ const Hero = () => {
       
       <div className="custom-container">
         <div className="max-w-3xl mx-auto text-center text-white">
-          <div className="space-y-6 animate-fade-in">
+          <div className="space-y-6">
             <span className="inline-block text-sm uppercase tracking-wider font-medium bg-wood-walnut/90 px-3 py-1 rounded-full">
               Custom Furniture & Cabinetry
             </span>
@@ -28,13 +28,13 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/quote"
-                className="btn-primary"
+                className="inline-block px-6 py-3 bg-wood-walnut text-white rounded-lg hover:bg-wood-walnut/90 transition-colors"
               >
                 Get a Quote
               </Link>
               <Link
                 to="/shop"
-                className="btn-secondary"
+                className="inline-block px-6 py-3 border-2 border-white text-white rounded-lg hover:bg-white hover:text-wood-walnut transition-colors"
               >
                 View Collection
               </Link>
