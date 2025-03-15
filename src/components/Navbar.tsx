@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -6,7 +5,7 @@ import { Menu, X } from "lucide-react";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
   // Handle scroll events to change navbar style
   useEffect(() => {
     const handleScroll = () => {
@@ -16,7 +15,7 @@ const Navbar = () => {
         setIsScrolled(false);
       }
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -48,7 +47,7 @@ const Navbar = () => {
           >
             Cabinets by Design
           </Link>
-          
+
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
@@ -57,6 +56,15 @@ const Navbar = () => {
                   key={item.label}
                   href={item.path}
                   className="text-primary/90 font-medium text-sm hover:text-wood-walnut transition-colors"
+                  onClick={() => {
+                    if (item.path.startsWith('/#')) {
+                      const targetId = item.path.substring(2);
+                      const element = document.getElementById(targetId);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }
+                  }}
                 >
                   {item.label}
                 </a>
@@ -71,7 +79,7 @@ const Navbar = () => {
               )
             ))}
           </nav>
-          
+
           {/* Mobile Menu Button */}
           <button 
             className="md:hidden text-primary/80 hover:text-wood-walnut transition-colors"
@@ -82,7 +90,7 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      
+
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden glass-morphism absolute top-full left-0 w-full animate-fade-in shadow-lg">
@@ -94,7 +102,16 @@ const Navbar = () => {
                     key={item.label}
                     href={item.path}
                     className="text-primary/90 font-medium text-sm hover:text-wood-walnut transition-colors py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      if (item.path.startsWith('/#')) {
+                        const targetId = item.path.substring(2);
+                        const element = document.getElementById(targetId);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }
+                    }}
                   >
                     {item.label}
                   </a>

@@ -11,18 +11,39 @@ const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const { toast } = useToast();
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Simulate form submission
-    setTimeout(() => {
-      setFormSubmitted(true);
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message')
+    };
+
+    setFormSubmitted(true);
+    
+    try {
+      // Here you would normally send the data to your backend
+      // For now we'll simulate an API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       toast({
-        title: "Message sent!",
+        title: "Message sent successfully!",
         description: "We'll get back to you within 24 hours.",
+        variant: "default",
       });
-      // Reset after 3 seconds
-      setTimeout(() => setFormSubmitted(false), 3000);
-    }, 500);
+      
+      // Clear form
+      (e.target as HTMLFormElement).reset();
+    } catch (error) {
+      toast({
+        title: "Error sending message",
+        description: "Please try again later or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setFormSubmitted(false);
+    }
   };
 
   useEffect(() => {

@@ -21,23 +21,41 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="#" 
-                aria-label="Instagram"
+                href="https://instagram.com/cabinetsbydesign" 
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
                 className="text-white/70 hover:text-white transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.open('https://instagram.com/cabinetsbydesign', '_blank');
+                }}
               >
                 <Instagram size={20} />
               </a>
               <a 
-                href="#" 
-                aria-label="Facebook"
+                href="https://facebook.com/cabinetsbydesign" 
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Facebook"
                 className="text-white/70 hover:text-white transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.open('https://facebook.com/cabinetsbydesign', '_blank');
+                }}
               >
                 <Facebook size={20} />
               </a>
               <a 
-                href="#" 
-                aria-label="Twitter"
+                href="https://twitter.com/cabinetsbydesign" 
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Twitter"
                 className="text-white/70 hover:text-white transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.open('https://twitter.com/cabinetsbydesign', '_blank');
+                }}
               >
                 <Twitter size={20} />
               </a>

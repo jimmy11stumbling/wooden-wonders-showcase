@@ -1,4 +1,3 @@
-
 import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
@@ -32,12 +31,18 @@ const Hero = () => {
               <a 
                 href="#catalog" 
                 className="bg-wood-walnut hover:bg-wood-walnut/90 text-white font-medium rounded-md px-6 py-3 transition-all hover-lift"
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 Explore Our Collection
               </a>
               <a 
                 href="#custom" 
                 className="bg-transparent hover:bg-white/10 text-white border border-white/30 font-medium rounded-md px-6 py-3 transition-all hover-lift"
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 Request Custom Design
               </a>
