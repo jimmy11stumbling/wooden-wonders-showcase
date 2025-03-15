@@ -137,21 +137,21 @@ const Catalog = () => {
                 id: 1,
                 name: "Walnut Dining Table",
                 category: "Tables",
-                image: "/attached_assets/sausalito-brown-5-pc-dining-room_4243372P_image-3-2.webp",
+                image: "/attached_assets/pic1.jfif",
                 price: "$2,800"
               },
               {
                 id: 2,
                 name: "Classic Cabinet",
                 category: "Cabinets",
-                image: "/attached_assets/acorn-cottage-brown-server_42762787_image-item.webp",
+                image: "/attached_assets/pic2.jfif",
                 price: "$1,200"
               },
               {
                 id: 3,
                 name: "Modern Coffee Table",
                 category: "Tables",
-                image: "/attached_assets/cm3319t-det_foa20231.webp",
+                image: "/attached_assets/pic3.jfif",
                 price: "$800"
               }
             ].map((product) => (
