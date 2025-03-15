@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
@@ -83,6 +82,45 @@ const products = [
     options: {
       size: ["48-inch", "60-inch", "72-inch"],
       doors: ["No Doors", "Cabinet Doors", "Media Mesh Doors"]
+    }
+  },
+  {
+    id: 7,
+    name: "Pantry Storage System",
+    category: "Cabinets",
+    description: "Custom pantry organization system with adjustable shelves and pull-out drawers.",
+    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2672&auto=format&fit=crop",
+    price: 3200,
+    stock: 3,
+    options: {
+      height: ["72-inch", "84-inch", "96-inch"],
+      features: ["Basic Shelves", "Pull-out Drawers", "Wine Storage"]
+    }
+  },
+  {
+    id: 8,
+    name: "Office Built-in Cabinets",
+    category: "Cabinets",
+    description: "Custom built-in office cabinets with desk and storage solutions.",
+    image: "https://images.unsplash.com/photo-1600494603989-9650cf6dad51?q=80&w=2670&auto=format&fit=crop",
+    price: 4500,
+    stock: 2,
+    options: {
+      configuration: ["L-Shape", "U-Shape", "Wall-to-Wall"],
+      finish: ["Cherry", "Maple", "White Paint"]
+    }
+  },
+  {
+    id: 9,
+    name: "Garage Storage Cabinets",
+    category: "Cabinets",
+    description: "Heavy-duty garage storage system with lockable doors and adjustable shelving.",
+    image: "https://images.unsplash.com/photo-1594872399187-4c47509050b8?q=80&w=2671&auto=format&fit=crop",
+    price: 2800,
+    stock: 5,
+    options: {
+      material: ["Metal", "Wood", "Hybrid"],
+      configuration: ["Wall Mount", "Floor Standing", "Complete System"]
     }
   }
 ];
@@ -178,14 +216,14 @@ const Shop = () => {
 
   const updateQuantity = (cartItemId: number, newQuantity: number) => {
     if (newQuantity < 1) return;
-    
+
     const updatedCart = cart.map(item => {
       if (item.id === cartItemId) {
         return { ...item, quantity: newQuantity };
       }
       return item;
     });
-    
+
     setCart(updatedCart);
   };
 
@@ -257,7 +295,7 @@ const Shop = () => {
             </div>
           </div>
         </section>
-        
+
         {/* Shop Content */}
         <section 
           ref={sectionRef}
@@ -279,7 +317,7 @@ const Shop = () => {
                     <ChevronDown className="h-4 w-4 ml-2" />
                   )}
                 </button>
-                
+
                 <button 
                   onClick={() => setIsCartOpen(true)}
                   className="relative flex items-center text-sm font-medium bg-wood-walnut text-white px-4 py-2 rounded-md transition-colors"
@@ -293,12 +331,12 @@ const Shop = () => {
                   )}
                 </button>
               </div>
-              
+
               {/* Sidebar Filters (Desktop always visible, Mobile toggleable) */}
               <div className={`lg:col-span-3 lg:block ${isFilterOpen ? 'block' : 'hidden'} mb-8 lg:mb-0`}>
                 <div className="bg-white rounded-lg shadow-sm p-6 sticky top-24">
                   <h3 className="text-lg font-medium mb-4">Filters</h3>
-                  
+
                   {/* Categories */}
                   <div className="mb-6">
                     <h4 className="text-sm font-medium mb-3">Categories</h4>
@@ -318,7 +356,7 @@ const Shop = () => {
                       ))}
                     </div>
                   </div>
-                  
+
                   {/* Sort By */}
                   <div className="mb-6">
                     <h4 className="text-sm font-medium mb-3">Sort By</h4>
@@ -334,7 +372,7 @@ const Shop = () => {
                       ))}
                     </select>
                   </div>
-                  
+
                   {/* Price Range (simplified) */}
                   <div>
                     <h4 className="text-sm font-medium mb-3">Price Range</h4>
@@ -355,7 +393,7 @@ const Shop = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Product Grid */}
               <div className="lg:col-span-9">
                 {/* Desktop Cart Button */}
@@ -368,7 +406,7 @@ const Shop = () => {
                     View Cart ({cartItemCount})
                   </button>
                 </div>
-                
+
                 {/* Products */}
                 <div 
                   className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${
@@ -417,7 +455,7 @@ const Shop = () => {
                     </div>
                   ))}
                 </div>
-                
+
                 {/* Empty State */}
                 {sortedProducts.length === 0 && (
                   <div className="text-center py-12 bg-secondary/20 rounded-lg">
@@ -435,7 +473,7 @@ const Shop = () => {
             </div>
           </div>
         </section>
-        
+
         {/* Cart Drawer */}
         {isCartOpen && (
           <div className="fixed inset-0 bg-black/50 z-50 flex justify-end">
@@ -450,7 +488,7 @@ const Shop = () => {
                   <X className="h-5 w-5" />
                 </button>
               </div>
-              
+
               {/* Cart Items */}
               <div className="flex-grow overflow-auto p-6">
                 {cart.length === 0 ? (
@@ -519,7 +557,7 @@ const Shop = () => {
                   </div>
                 )}
               </div>
-              
+
               {/* Cart Footer */}
               <div className="p-6 border-t border-muted bg-secondary/20">
                 <div className="flex justify-between mb-4">
