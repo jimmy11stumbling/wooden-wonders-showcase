@@ -1,5 +1,5 @@
-
 import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 // Product data
 const products = [
@@ -60,9 +60,9 @@ const Catalog = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  
-  const filteredProducts = activeCategory === "All" 
-    ? products 
+
+  const filteredProducts = activeCategory === "All"
+    ? products
     : products.filter(product => product.category === activeCategory);
 
   useEffect(() => {
@@ -92,8 +92,8 @@ const Catalog = () => {
   }, []);
 
   return (
-    <section 
-      id="catalog" 
+    <section
+      id="catalog"
       ref={sectionRef}
       className="py-24"
     >
@@ -109,7 +109,7 @@ const Catalog = () => {
             Browse our collection of handcrafted wooden furniture, each piece uniquely designed and meticulously crafted to last generations.
           </p>
         </div>
-        
+
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">
           {categories.map((category) => (
@@ -126,16 +126,16 @@ const Catalog = () => {
             </button>
           ))}
         </div>
-        
+
         {/* Products Grid */}
-        <div 
+        <div
           className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${
             isVisible ? 'animate-fade-in' : 'opacity-0'
           }`}
         >
           {filteredProducts.map((product) => (
-            <div 
-              key={product.id} 
+            <div
+              key={product.id}
               className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all hover-lift"
             >
               <div className="relative h-64 overflow-hidden">
@@ -157,8 +157,8 @@ const Catalog = () => {
                   <span className="text-xs bg-secondary rounded-full px-2 py-1">{product.category}</span>
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">{product.description}</p>
-                <a 
-                  href="#custom" 
+                <a
+                  href="#custom"
                   className="inline-flex items-center text-sm font-medium text-wood-walnut hover:text-wood-cherry transition-colors"
                 >
                   Inquire about this piece
@@ -170,12 +170,12 @@ const Catalog = () => {
             </div>
           ))}
         </div>
-        
+
         {/* View more button */}
         <div className="text-center mt-12">
-          <button className="bg-transparent text-wood-walnut hover:bg-wood-walnut/10 border border-wood-walnut/30 font-medium rounded-md px-6 py-3 transition-all hover-lift">
+          <Link to="/full-collection" className="bg-transparent text-wood-walnut hover:bg-wood-walnut/10 border border-wood-walnut/30 font-medium rounded-md px-6 py-3 transition-all hover-lift">
             View Full Collection
-          </button>
+          </Link>
         </div>
       </div>
     </section>
