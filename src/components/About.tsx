@@ -46,16 +46,16 @@ const About = () => {
           >
             <div className="relative z-10 rounded-lg overflow-hidden shadow-xl">
               <img 
-                src="https://images.unsplash.com/photo-1588854337115-1c67d9247e4d?q=80&w=2665&auto=format&fit=crop" 
-                alt="Craftsman working on wooden furniture" 
+                src="https://images.unsplash.com/photo-1493552152660-f915ab47ae9d?q=80&w=2487" 
+                alt="Elegant wooden cabinet showcase" 
                 className="w-full h-80 object-cover"
                 loading="lazy"
               />
             </div>
             <div className="absolute top-20 -right-6 sm:-right-12 z-0 rounded-lg overflow-hidden shadow-xl w-3/4 h-80 hidden sm:block">
               <img 
-                src="https://images.unsplash.com/photo-1598106147395-be4ae3612867?q=80&w=3028&auto=format&fit=crop" 
-                alt="Workshop with wooden materials" 
+                src="https://images.unsplash.com/photo-1581428982868-e410dd047a90?q=80&w=2487" 
+                alt="Handcrafted wooden furniture display" 
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
