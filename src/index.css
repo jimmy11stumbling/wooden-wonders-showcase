@@ -164,7 +164,8 @@ html {
 }
 
 .glass-card:hover {
-  @apply bg-background/98 shadow-xl;
+  @apply bg-background shadow-xl;
+  background-color: hsl(var(--background) / 0.98);
   transform: translateY(-2px);
 }
 
