@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -98,17 +99,6 @@ const ProductDetail = () => {
                     </div>
                   </div>
                 ))}
-              </div>
-
-              {/* Custom Notes */}
-              <div className="space-y-2 mb-8">
-                <h3 className="text-sm font-medium uppercase">Custom Notes</h3>
-                <textarea
-                  value={notes}
-                  onChange={(e) => setNotes(e.target.value)}
-                  placeholder="Add any special requests or customizations..."
-                  className="w-full h-32 p-3 rounded-md border border-input bg-background resize-none"
-                />
               </div>
 
               {/* Quantity and Add to Cart */}
