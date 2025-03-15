@@ -3,7 +3,9 @@ import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ShoppingCart, Filter, ChevronDown, ChevronUp, Minus, Plus, X } from "lucide-react";
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
+import { Button } from "@/components/ui/button";
+import { Catalog } from "@/components/Catalog";
 
 // Products data
 const products = [
@@ -12,7 +14,7 @@ const products = [
     name: "Walnut Dining Table",
     category: "Tables",
     description: "Handcrafted dining table made from solid walnut with dovetail joinery.",
-    image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=2574&auto=format&fit=crop",
+    image: "/attached_assets/pic1.jfif",
     price: 2800,
     stock: 2,
     options: {
@@ -25,7 +27,7 @@ const products = [
     name: "Maple Rocking Chair",
     category: "Chairs",
     description: "Comfortable rocking chair crafted from maple with hand-woven seat.",
-    image: "https://images.unsplash.com/photo-1581539250439-c96689b516dd?q=80&w=2565&auto=format&fit=crop",
+    image: "/attached_assets/pic2.jfif",
     price: 1200,
     stock: 5,
     options: {
@@ -38,7 +40,7 @@ const products = [
     name: "Oak Bookshelf",
     category: "Storage",
     description: "Adjustable bookshelf made from quarter-sawn oak with traditional joinery.",
-    image: "https://images.unsplash.com/photo-1504156668465-4b4d9c291ee6?q=80&w=2670&auto=format&fit=crop",
+    image: "/attached_assets/pic3.jfif",
     price: 1850,
     stock: 3,
     options: {
@@ -51,7 +53,7 @@ const products = [
     name: "Cherry Nightstand",
     category: "Bedroom",
     description: "Elegant nightstand crafted from cherry wood with dovetail drawers.",
-    image: "https://images.unsplash.com/photo-1532499012374-13e8607b5c9e?q=80&w=2670&auto=format&fit=crop",
+    image: "/attached_assets/pic4.jfif",
     price: 950,
     stock: 8,
     options: {
@@ -64,7 +66,7 @@ const products = [
     name: "Walnut Coffee Table",
     category: "Tables",
     description: "Modern coffee table made from walnut with tempered glass inlay.",
-    image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=2574&auto=format&fit=crop",
+    image: "/attached_assets/pic5.jfif",
     price: 1450,
     stock: 4,
     options: {
@@ -77,51 +79,12 @@ const products = [
     name: "Ebony Media Console",
     category: "Storage",
     description: "Sleek media console crafted from ebony with cable management system.",
-    image: "https://images.unsplash.com/photo-1581292739203-97401992b598?q=80&w=2670&auto=format&fit=crop",
+    image: "/attached_assets/pic6.jfif",
     price: 2200,
     stock: 2,
     options: {
       size: ["48-inch", "60-inch", "72-inch"],
       doors: ["No Doors", "Cabinet Doors", "Media Mesh Doors"]
-    }
-  },
-  {
-    id: 7,
-    name: "Pantry Storage System",
-    category: "Cabinets",
-    description: "Custom pantry organization system with adjustable shelves and pull-out drawers.",
-    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2672&auto=format&fit=crop",
-    price: 3200,
-    stock: 3,
-    options: {
-      height: ["72-inch", "84-inch", "96-inch"],
-      features: ["Basic Shelves", "Pull-out Drawers", "Wine Storage"]
-    }
-  },
-  {
-    id: 8,
-    name: "Office Built-in Cabinets",
-    category: "Cabinets",
-    description: "Custom built-in office cabinets with desk and storage solutions.",
-    image: "https://images.unsplash.com/photo-1600494603989-9650cf6dad51?q=80&w=2670&auto=format&fit=crop",
-    price: 4500,
-    stock: 2,
-    options: {
-      configuration: ["L-Shape", "U-Shape", "Wall-to-Wall"],
-      finish: ["Cherry", "Maple", "White Paint"]
-    }
-  },
-  {
-    id: 9,
-    name: "Garage Storage Cabinets",
-    category: "Cabinets",
-    description: "Heavy-duty garage storage system with lockable doors and adjustable shelving.",
-    image: "https://images.unsplash.com/photo-1594872399187-4c47509050b8?q=80&w=2671&auto=format&fit=crop",
-    price: 2800,
-    stock: 5,
-    options: {
-      material: ["Metal", "Wood", "Hybrid"],
-      configuration: ["Wall Mount", "Floor Standing", "Complete System"]
     }
   }
 ];
@@ -601,5 +564,12 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default function Shop() {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <Catalog products={products} />
+    </div>
+  );
+}
+
 export {ProductDetails};
