@@ -1,14 +1,13 @@
-
 import { type ProductType } from '@/types/product';
 
 export const products: ProductType[] = [
   {
     id: 1,
-    name: "Walnut Dining Table",
+    name: "Victorian Dining Set",
     category: "Tables",
-    description: "Handcrafted dining table made from solid walnut with dovetail joinery.",
+    description: "Elegant Victorian-style dining table with ornate carved details and matching chairs.",
     image: "/attached_assets/sausalito-brown-5-pc-dining-room_4243372P_image-3-2.webp",
-    price: 2800,
+    price: 3500,
     stock: 2,
     estimatedTime: "6-8 weeks",
     options: {
@@ -18,11 +17,11 @@ export const products: ProductType[] = [
   },
   {
     id: 2,
-    name: "Server Cabinet",
-    category: "Storage",
-    description: "Elegant server cabinet with ample storage space and classic design.",
-    image: "/attached_assets/acorn-cottage-brown-server_42762787_image-item.webp",
-    price: 1850,
+    name: "Contemporary Dining Set",
+    category: "Tables",
+    description: "Modern dining set with clean lines and gray wash finish, perfect for contemporary homes.",
+    image: "/attached_assets/cm3319t-det_foa20231.webp",
+    price: 2800,
     stock: 3,
     estimatedTime: "5-7 weeks",
     options: {
@@ -31,11 +30,11 @@ export const products: ProductType[] = [
   },
   {
     id: 3,
-    name: "Modern Coffee Table",
-    category: "Tables",
-    description: "Contemporary coffee table with sleek design and durable construction.",
-    image: "/attached_assets/cm3319t-det_foa20231.webp",
-    price: 950,
+    name: "Farmhouse Buffet",
+    category: "Storage",
+    description: "Rustic farmhouse buffet with wine storage and X-pattern door design.",
+    image: "/attached_assets/acorn-cottage-brown-server_42762787_image-item.webp",
+    price: 1450,
     stock: 4,
     estimatedTime: "3-5 weeks",
     options: {
@@ -60,102 +59,6 @@ export const products: ProductType[] = [
     name: "Modern Wardrobe",
     category: "Storage",
     description: "Spacious wardrobe with contemporary design.",
-    image: "/attached_assets/pic2.jfif",
-    price: 2500,
-    stock: 3,
-    estimatedTime: "6-8 weeks",
-    options: {
-      size: ["Standard", "Large"],
-      finish: ["Natural", "Espresso"]
-    }
-  },
-  {
-    id: 6,
-    name: "Luxury Bathroom Vanity",
-    category: "Cabinets",
-    description: "Elegant bathroom vanity with premium finish.",
-    image: "/attached_assets/pic3.jfif",
-    price: 1800,
-    stock: 4,
-    estimatedTime: "5-7 weeks",
-    options: {
-      size: ["36-inch", "48-inch"],
-      finish: ["White", "Gray", "Navy"]
-    }
-  },
-  {
-    id: 7,
-    name: "Premium Kitchen Set",
-    category: "Cabinets",
-    description: "Complete kitchen storage solution.",
-    image: "/attached_assets/pic4.jfif",
-    price: 3500,
-    stock: 2,
-    estimatedTime: "7-9 weeks",
-    options: {
-      layout: ["L-Shape", "U-Shape"],
-      finish: ["White", "Wood Grain"]
-    }
-  },
-  {
-    id: 8,
-    name: "Classic Cabinet Set",
-    category: "Cabinets",
-    description: "Traditional cabinet set with timeless design.",
-    image: "/attached_assets/pic5.jfif",
-    price: 2800,
-    stock: 3,
-    estimatedTime: "6-8 weeks",
-    options: {
-      finish: ["Cherry", "Maple", "Oak"]
-    }
-  },
-  {
-    id: 9,
-    name: "Storage Solutions",
-    category: "Storage",
-    description: "Modern storage cabinet with clean lines.",
-    image: "/attached_assets/pic6.jfif",
-    price: 1600,
-    stock: 4,
-    estimatedTime: "4-6 weeks",
-    options: {
-      size: ["Standard", "Large"],
-      finish: ["White", "Black"]
-    }
-  },
-  {
-    id: 10,
-    name: "Designer Kitchen",
-    category: "Cabinets",
-    description: "Premium kitchen cabinet system.",
-    image: "/attached_assets/pic7.jfif",
-    price: 4500,
-    stock: 2,
-    estimatedTime: "8-10 weeks",
-    options: {
-      layout: ["Custom"],
-      finish: ["Premium Wood", "Custom Color"]
-    }
-  },
-  {
-    id: 11,
-    name: "Modern Bathroom Set",
-    category: "Cabinets",
-    description: "Contemporary bathroom storage solution.",
-    image: "/attached_assets/pic8.jfif",
-    price: 2200,
-    stock: 3,
-    estimatedTime: "5-7 weeks",
-    options: {
-      finish: ["Natural", "Dark Stain", "White"]
-    }
-  },
-  {
-    id: 5,
-    name: "Modern Wardrobe",
-    category: "Storage",
-    description: "Spacious wardrobe with contemporary design and multiple compartments.",
     image: "/attached_assets/pic2.jfif",
     price: 2500,
     stock: 3,
