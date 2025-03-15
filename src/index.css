@@ -107,7 +107,7 @@
 
 @layer components {
   .glass-morphism {
-    @apply bg-white/80 backdrop-blur-md;
+    @apply bg-white/90 backdrop-blur-xl border border-white/20 shadow-xl;
   }
   
   .custom-container {
@@ -117,19 +117,54 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .fancy-shadow {
+    @apply shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgba(255,255,255,0.08)];
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1;
+  }
+
+  .button-glow {
+    @apply relative overflow-hidden transition-all duration-300 
+    before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/0 before:via-primary/20 before:to-primary/0
+    before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700;
+  }
 }
 
-/* Custom smooth scroll */
+/* Custom smooth scroll with easing */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
 }
 
-/* Custom animations */
+/* Enhanced animations */
 .hover-lift {
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1), 
+              box-shadow 0.4s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 
+    0 20px 40px -5px rgba(0, 0, 0, 0.1),
+    0 10px 20px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Fade in animation for content */
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
