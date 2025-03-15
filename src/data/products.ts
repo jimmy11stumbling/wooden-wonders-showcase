@@ -13,44 +13,44 @@ interface ProductType {
 export const products: ProductType[] = [
   {
     id: 1,
-    name: "Walnut Dining Table",
+    name: "Victorian Dining Table",
     category: "Tables",
-    description: "Handcrafted dining table made from solid walnut with dovetail joinery. Each piece is carefully crafted to your specifications with attention to detail and superior craftsmanship.",
-    image: "/attached_assets/sausalito-brown-5-pc-dining-room_4243372P_image-3-2.webp",
-    price: 2800,
+    description: "Elegant Victorian-style dining table with ornate carved pedestals and detailed trim work. Features a rich dark wood finish and accommodates 6-8 people comfortably.",
+    image: "/attached_assets/cm3319t-det_foa20231.webp",
+    price: 3200,
     stock: 2,
-    estimatedTime: "6-8 weeks",
+    estimatedTime: "8-10 weeks",
     options: {
-      size: ["6-Person", "8-Person", "10-Person"],
-      finish: ["Natural Oil", "Matte Varnish", "Semi-Gloss"]
+      size: ["6-Person", "8-Person"],
+      finish: ["Dark Cherry", "Mahogany", "Espresso"]
     }
   },
   {
     id: 2,
-    name: "Maple Rocking Chair",
-    category: "Chairs",
-    description: "Comfortable rocking chair crafted from maple with hand-woven seat. Traditional design meets modern comfort in this timeless piece.",
-    image: "https://images.unsplash.com/photo-1581539250439-c96689b516dd?q=80&w=2565&auto=format&fit=crop",
-    price: 1200,
-    stock: 5,
-    estimatedTime: "4-6 weeks",
+    name: "Modern Dining Set",
+    category: "Tables",
+    description: "Contemporary dining set featuring clean lines and a sophisticated gray wash finish. Includes a table and matching chairs with upholstered seats.",
+    image: "/attached_assets/sausalito-brown-5-pc-dining-room_4243372P_image-3-2.webp",
+    price: 4500,
+    stock: 3,
+    estimatedTime: "6-8 weeks",
     options: {
-      finish: ["Natural Oil", "Matte Varnish", "Danish Oil"],
-      cushion: ["None", "Leather", "Fabric"]
+      size: ["6-Person", "8-Person"],
+      finish: ["Gray Wash", "Natural Oak", "White Oak"]
     }
   },
   {
     id: 3,
-    name: "Classic Kitchen Cabinet",
-    category: "Cabinets",
-    description: "Traditional style kitchen cabinet with modern functionality",
+    name: "Farmhouse Sideboard",
+    category: "Storage",
+    description: "Rustic farmhouse style sideboard with wine storage. Features X-pattern doors, three drawers, and a distressed oak finish.",
     image: "/attached_assets/acorn-cottage-brown-server_42762787_image-item.webp",
-    price: 599.99,
-    stock: 10,
-    estimatedTime: "3-4 weeks",
+    price: 899.99,
+    stock: 5,
+    estimatedTime: "4-6 weeks",
     options: {
-      finish: ["Natural", "White", "Gray"],
-      hardware: ["Chrome", "Brass", "Black"]
+      finish: ["Distressed Oak", "Weathered Gray", "Vintage Brown"],
+      hardware: ["Black Iron", "Antique Brass", "Oil-Rubbed Bronze"]
     }
   }
 ];
