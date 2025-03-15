@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <a 
-                  href="https://www.google.com/maps/search/?api=1&query=2022+Zaragoza+St+Laredo+TX"
+                  href="https://www.google.com/maps/search/?api=1&query=2202+Zaragoza+St+Laredo+TX"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start text-white/70 hover:text-white transition-colors"
