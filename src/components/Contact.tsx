@@ -177,21 +177,21 @@ const Contact = () => {
               <TabsContent value="map">
                 <div className="bg-secondary/20 p-1 rounded-lg shadow-sm">
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d178132.501135!2d-122.7539902!3d45.5428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950b0b7da97427%3A0x1c36b9e6f6d18591!2sPortland%2C%20OR!5e0!3m2!1sen!2sus!4v1695812345678!5m2!1sen!2sus" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.5224132254584!2d-99.51112792374607!3d27.5062776276753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866120f318c57223%3A0x9e8a89b1bf1a7c0c!2s2022%20Zaragoza%20St%2C%20Laredo%2C%20TX%2078040!5e0!3m2!1sen!2sus!4v1709081230044!5m2!1sen!2sus" 
                     width="100%" 
                     height="450" 
                     style={{ border: 0 }} 
                     allowFullScreen 
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Google Maps location of Wooden Wonders"
+                    title="Google Maps location of Cabinets by Design"
                     className="rounded-lg"
                   ></iframe>
                 </div>
                 <div className="mt-4">
                   <h3 className="text-lg font-medium mb-2">Getting Here</h3>
                   <p className="text-muted-foreground mb-4">
-                    Our workshop is located in the Central Eastside Industrial District of Portland, easily accessible by public transportation or car.
+                    Our workshop is conveniently located in Laredo, TX. Visit us to discuss your custom cabinet needs in person.
                   </p>
                   <Button variant="outline" size="sm" className="flex items-center gap-2">
                     <MapPin className="h-4 w-4" />
