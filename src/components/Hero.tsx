@@ -1,46 +1,43 @@
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background image */}
       <div className="absolute inset-0 -z-10">
-        <div 
-          className="w-full h-full bg-[url('https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=3174')] bg-cover bg-center"
-          style={{ opacity: 0.9 }}
+        <div className="absolute inset-0 bg-black/60" />
+        <img
+          src="/furniture-images/hero-bg.jpg"
+          alt="Workshop background"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background" />
       </div>
-
+      
       <div className="custom-container">
         <div className="max-w-3xl mx-auto text-center text-white">
           <div className="space-y-6 animate-fade-in">
             <span className="inline-block text-sm uppercase tracking-wider font-medium bg-wood-walnut/90 px-3 py-1 rounded-full">
-              Custom Cabinetry in Laredo
+              Custom Furniture & Cabinetry
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold">
-              Transform Your Space with Custom Cabinets
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium">
+              Crafting Your Perfect Space
             </h1>
-            <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-              Expert craftsmanship meets innovative design. Discover our range of custom cabinetry solutions tailored to your unique style and needs.
+            <p className="text-lg text-gray-200">
+              Transform your home with handcrafted custom cabinets and furniture pieces that blend artistry with functionality.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                asChild
-                size="lg" 
-                className="bg-wood-walnut hover:bg-wood-walnut/90"
+              <Link
+                to="/quote"
+                className="btn-primary"
               >
-                <Link to="/quote">Get a Quote</Link>
-              </Button>
-              <Button 
-                asChild
-                size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-wood-walnut"
+                Get a Quote
+              </Link>
+              <Link
+                to="/shop"
+                className="btn-secondary"
               >
-                <Link to="/portfolio">View Portfolio</Link>
-              </Button>
+                View Collection
+              </Link>
             </div>
           </div>
         </div>
