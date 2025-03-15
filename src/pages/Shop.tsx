@@ -3,6 +3,7 @@ import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ShoppingCart, Filter, ChevronDown, ChevronUp, Minus, Plus, X } from "lucide-react";
+import Link from 'next/link'; // Assuming Next.js for routing
 
 // Products data
 const products = [
@@ -162,6 +163,32 @@ const formatPrice = (price: number) => {
     currency: 'USD',
   }).format(price);
 };
+
+const ProductDetails = ({ product }: { product: ProductType }) => {
+    return (
+      <div className="p-8">
+        <h1 className="text-3xl font-serif font-bold mb-4">{product.name}</h1>
+        <img src={product.image} alt={product.name} className="w-full max-h-96 object-cover mb-4" />
+        <p className="text-lg mb-4">{product.description}</p>
+        <p className="text-xl font-medium mb-4">Price: {formatPrice(product.price)}</p>
+        <h2 className="text-xl font-medium mb-2">Customization Options</h2>
+        <div className="space-y-4">
+          {Object.entries(product.options).map(([optionKey, options]) => (
+            <div key={optionKey}>
+              <label className="block text-lg font-medium mb-2" htmlFor={optionKey}>{optionKey}</label>
+              <select id={optionKey} className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-wood-walnut">
+                {options.map((option) => (
+                  <option key={option} value={option}>{option}</option>
+                ))}
+              </select>
+            </div>
+          ))}
+        </div>
+        <h2 className="text-xl font-medium mt-8 mb-2">Notes</h2>
+        <textarea placeholder="Add notes or customizations..." className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-wood-walnut h-32 resize-y"></textarea>
+      </div>
+    );
+  };
 
 const Shop = () => {
   const { toast } = useToast();
@@ -414,45 +441,26 @@ const Shop = () => {
                   }`}
                 >
                   {sortedProducts.map((product) => (
-                    <div 
-                      key={product.id}
-                      className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all"
+                    <Link 
+                      href={`/product/${product.id}`} 
+                      key={product.id} 
+                      className="group relative block"
                     >
-                      <div className="relative h-64 overflow-hidden">
+                      <div className="aspect-square overflow-hidden rounded-lg bg-secondary/5">
                         <img
                           src={product.image}
                           alt={product.name}
-                          className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform group-hover:scale-105"
                         />
-                        <div className="absolute top-2 right-2 bg-wood-walnut text-white text-sm font-medium rounded-full px-3 py-1">
-                          {formatPrice(product.price)}
+                      </div>
+                      <div className="mt-4 space-y-1">
+                        <h3 className="text-sm font-medium">{product.name}</h3>
+                        <p className="text-sm text-muted-foreground">${product.price.toLocaleString()}</p>
+                        <div className="mt-2 invisible group-hover:visible">
+                          <span className="text-xs text-wood-walnut">View Details →</span>
                         </div>
                       </div>
-                      <div className="p-5">
-                        <div className="flex justify-between items-start mb-2">
-                          <h3 className="text-lg font-serif font-medium">{product.name}</h3>
-                          <span className="text-xs bg-secondary rounded-full px-2 py-1">{product.category}</span>
-                        </div>
-                        <p className="text-sm text-muted-foreground mb-4">{product.description}</p>
-                        <div className="flex justify-between items-center">
-                          <span className={`text-sm ${product.stock > 0 ? 'text-green-600' : 'text-red-600'}`}>
-                            {product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}
-                          </span>
-                          <button
-                            onClick={() => addToCart(product)}
-                            disabled={product.stock === 0}
-                            className={`px-4 py-2 rounded-md text-sm font-medium ${
-                              product.stock > 0
-                                ? 'bg-wood-walnut text-white hover:bg-wood-walnut/90'
-                                : 'bg-muted text-muted-foreground cursor-not-allowed'
-                            } transition-colors`}
-                          >
-                            Add to Cart
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
 
@@ -594,3 +602,4 @@ const Shop = () => {
 };
 
 export default Shop;
+export {ProductDetails};
