@@ -1,39 +1,4 @@
-
-import React from 'react';
-
-export const About = () => {
-  return (
-    <section id="about" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Laredo's Trusted Cabinet Maker Since 2013</h2>
-          <p className="text-lg text-gray-600 mb-8">
-            For over a decade, Cabinets by Design has been serving the Laredo, Texas community with exceptional custom cabinetry. 
-            Our skilled craftsmen combine traditional woodworking techniques with modern design to create stunning, functional spaces
-            that reflect the unique style of South Texas homes.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <h3 className="font-bold text-xl mb-2">Custom Design</h3>
-              <p>Personalized solutions for your unique space</p>
-            </div>
-            <div className="text-center">
-              <h3 className="font-bold text-xl mb-2">Local Expertise</h3>
-              <p>Deep understanding of Laredo's style preferences</p>
-            </div>
-            <div className="text-center">
-              <h3 className="font-bold text-xl mb-2">Quality Craftsmanship</h3>
-              <p>Built to last for generations</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -96,36 +61,29 @@ const About = () => {
               />
             </div>
           </div>
-          
+
           {/* Content */}
           <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             <span className="inline-block text-sm uppercase tracking-wider font-medium text-wood-walnut mb-3">
               Our Story
             </span>
-            <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-6 text-balance">
-              Craftsmanship Rooted in Tradition & Innovation
-            </h2>
-            <div className="space-y-4 text-muted-foreground">
-              <p>
-                Founded in 2005, Wooden Wonders began as a small workshop with a big vision: to create enduring wooden furniture that combines traditional craftsmanship with contemporary design sensibilities.
-              </p>
-              <p>
-                Each piece that leaves our studio is the result of meticulous attention to detail, ethically sourced materials, and the skilled hands of our master artisans. We believe that great furniture should not only be beautiful but tell a story that evolves with your life.
-              </p>
-              <p>
-                Our commitment to sustainability means we work with responsibly harvested woods, utilize traditional joinery techniques that eliminate the need for excessive hardware, and finish our pieces with non-toxic, eco-friendly oils and stains.
-              </p>
-            </div>
-            <div className="mt-8">
-              <a 
-                href="#catalog" 
-                className="inline-flex items-center font-medium text-wood-walnut hover:text-wood-cherry transition-colors"
-              >
-                Discover our process
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
+            <h2 className="text-3xl font-bold mb-6">Crafting Excellence in Every Detail</h2>
+            <p className="text-muted-foreground mb-8">
+              With over a decade of experience, we combine traditional craftsmanship with modern design to create furniture that tells your story. Each piece is carefully crafted in our workshop, ensuring the highest quality and attention to detail.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              <div>
+                <h3 className="font-bold text-xl mb-2">Custom Design</h3>
+                <p className="text-muted-foreground">Personalized solutions for your unique space</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2">Expert Craftsmanship</h3>
+                <p className="text-muted-foreground">Built to last for generations</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-xl mb-2">Quality Materials</h3>
+                <p className="text-muted-foreground">Only the finest woods and finishes</p>
+              </div>
             </div>
           </div>
         </div>
