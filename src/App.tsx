@@ -23,7 +23,8 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/quote" element={<Quote />} />
+          <Route path="/quote" element={<Quote />} /> {/* Added route for Quote page */}
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

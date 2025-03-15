@@ -12,7 +12,7 @@ const products = [
     name: "Walnut Dining Table",
     category: "Tables",
     description: "Handcrafted dining table made from solid walnut with dovetail joinery.",
-    image: "/furniture-images/dining-table.jpg",
+    image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=2574&auto=format&fit=crop",
     price: 2800,
     stock: 2,
     options: {
@@ -25,7 +25,7 @@ const products = [
     name: "Maple Rocking Chair",
     category: "Chairs",
     description: "Comfortable rocking chair crafted from maple with hand-woven seat.",
-    image: "/furniture-images/rocking-chair.jpg",
+    image: "https://images.unsplash.com/photo-1581539250439-c96689b516dd?q=80&w=2565&auto=format&fit=crop",
     price: 1200,
     stock: 5,
     options: {
@@ -38,7 +38,7 @@ const products = [
     name: "Oak Bookshelf",
     category: "Storage",
     description: "Adjustable bookshelf made from quarter-sawn oak with traditional joinery.",
-    image: "/furniture-images/bookshelf.jpg",
+    image: "https://images.unsplash.com/photo-1504156668465-4b4d9c291ee6?q=80&w=2670&auto=format&fit=crop",
     price: 1850,
     stock: 3,
     options: {
