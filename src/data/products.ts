@@ -123,8 +123,8 @@ export const products: ProductType[] = [
     stock: 3,
     estimatedTime: "4-5 weeks",
     options: {
-      size: ["24-inch", "36-inch", "48-inch"],
-      finish: ["White", "Gray Oak", "Espresso"]
+      size: ["36-inch", "48-inch"],
+      finish: ["White", "Gray", "Navy"]
     }
   }
 ];
