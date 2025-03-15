@@ -442,7 +442,7 @@ const Shop = () => {
                 >
                   {sortedProducts.map((product) => (
                     <Link 
-                      href={`/product/${product.id}`} 
+                      to={`/product/${product.id}`} 
                       key={product.id} 
                       className="group relative block"
                     >
