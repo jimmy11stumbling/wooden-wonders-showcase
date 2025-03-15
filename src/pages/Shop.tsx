@@ -1,82 +1,353 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ShoppingCart, X, Plus, Minus } from 'lucide-react';
-import { products } from '../data/products';
-import Footer from '../components/Footer';
-import Navbar from "@/components/Navbar"; // Added Navbar import
+import { useState, useEffect, useRef } from "react";
+import { useToast } from "@/hooks/use-toast";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { ShoppingCart, Filter, ChevronDown, ChevronUp, Minus, Plus, X } from "lucide-react";
+import { Link } from 'react-router-dom'; 
+
+// Products data
+const products = [
+  {
+    id: 1,
+    name: "Walnut Dining Table",
+    category: "Tables",
+    description: "Handcrafted dining table made from solid walnut with dovetail joinery.",
+    image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=2574&auto=format&fit=crop",
+    price: 2800,
+    stock: 2,
+    options: {
+      size: ["6-Person", "8-Person", "10-Person"],
+      finish: ["Natural Oil", "Matte Varnish", "Semi-Gloss"]
+    }
+  },
+  {
+    id: 2,
+    name: "Maple Rocking Chair",
+    category: "Chairs",
+    description: "Comfortable rocking chair crafted from maple with hand-woven seat.",
+    image: "https://images.unsplash.com/photo-1581539250439-c96689b516dd?q=80&w=2565&auto=format&fit=crop",
+    price: 1200,
+    stock: 5,
+    options: {
+      finish: ["Natural Oil", "Matte Varnish", "Danish Oil"],
+      cushion: ["None", "Leather", "Fabric"]
+    }
+  },
+  {
+    id: 3,
+    name: "Oak Bookshelf",
+    category: "Storage",
+    description: "Adjustable bookshelf made from quarter-sawn oak with traditional joinery.",
+    image: "https://images.unsplash.com/photo-1504156668465-4b4d9c291ee6?q=80&w=2670&auto=format&fit=crop",
+    price: 1850,
+    stock: 3,
+    options: {
+      size: ["Small", "Medium", "Large"],
+      finish: ["Natural Oil", "Light Stain", "Dark Stain"]
+    }
+  },
+  {
+    id: 4,
+    name: "Cherry Nightstand",
+    category: "Bedroom",
+    description: "Elegant nightstand crafted from cherry wood with dovetail drawers.",
+    image: "https://images.unsplash.com/photo-1532499012374-13e8607b5c9e?q=80&w=2670&auto=format&fit=crop",
+    price: 950,
+    stock: 8,
+    options: {
+      drawers: ["One Drawer", "Two Drawers"],
+      finish: ["Natural Oil", "Matte Varnish", "Semi-Gloss"]
+    }
+  },
+  {
+    id: 5,
+    name: "Walnut Coffee Table",
+    category: "Tables",
+    description: "Modern coffee table made from walnut with tempered glass inlay.",
+    image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=2574&auto=format&fit=crop",
+    price: 1450,
+    stock: 4,
+    options: {
+      size: ["Small", "Medium", "Large"],
+      style: ["Glass Inlay", "Solid Top", "Storage Shelf"]
+    }
+  },
+  {
+    id: 6,
+    name: "Ebony Media Console",
+    category: "Storage",
+    description: "Sleek media console crafted from ebony with cable management system.",
+    image: "https://images.unsplash.com/photo-1581292739203-97401992b598?q=80&w=2670&auto=format&fit=crop",
+    price: 2200,
+    stock: 2,
+    options: {
+      size: ["48-inch", "60-inch", "72-inch"],
+      doors: ["No Doors", "Cabinet Doors", "Media Mesh Doors"]
+    }
+  },
+  {
+    id: 7,
+    name: "Pantry Storage System",
+    category: "Cabinets",
+    description: "Custom pantry organization system with adjustable shelves and pull-out drawers.",
+    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2672&auto=format&fit=crop",
+    price: 3200,
+    stock: 3,
+    options: {
+      height: ["72-inch", "84-inch", "96-inch"],
+      features: ["Basic Shelves", "Pull-out Drawers", "Wine Storage"]
+    }
+  },
+  {
+    id: 8,
+    name: "Office Built-in Cabinets",
+    category: "Cabinets",
+    description: "Custom built-in office cabinets with desk and storage solutions.",
+    image: "https://images.unsplash.com/photo-1600494603989-9650cf6dad51?q=80&w=2670&auto=format&fit=crop",
+    price: 4500,
+    stock: 2,
+    options: {
+      configuration: ["L-Shape", "U-Shape", "Wall-to-Wall"],
+      finish: ["Cherry", "Maple", "White Paint"]
+    }
+  },
+  {
+    id: 9,
+    name: "Garage Storage Cabinets",
+    category: "Cabinets",
+    description: "Heavy-duty garage storage system with lockable doors and adjustable shelving.",
+    image: "https://images.unsplash.com/photo-1594872399187-4c47509050b8?q=80&w=2671&auto=format&fit=crop",
+    price: 2800,
+    stock: 5,
+    options: {
+      material: ["Metal", "Wood", "Hybrid"],
+      configuration: ["Wall Mount", "Floor Standing", "Complete System"]
+    }
+  }
+];
+
+// Categories derived from products
+const categories = ["All", ...Array.from(new Set(products.map(item => item.category)))];
+
+// Sort options
+const sortOptions = [
+  { label: "Newest", value: "newest" },
+  { label: "Price: Low to High", value: "priceAsc" },
+  { label: "Price: High to Low", value: "priceDesc" },
+  { label: "Name: A to Z", value: "nameAsc" }
+];
+
+// Product type
+type ProductType = {
+  id: number;
+  name: string;
+  category: string;
+  description: string;
+  image: string;
+  price: number;
+  stock: number;
+  options: Record<string, string[]>;
+};
+
+// Cart item type
+type CartItemType = {
+  id: number;
+  product: ProductType;
+  quantity: number;
+  selectedOptions: Record<string, string>;
+};
+
+const formatPrice = (price: number) => {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(price);
+};
+
+const ProductDetails = ({ product }: { product: ProductType }) => {
+    return (
+      <div className="p-8">
+        <h1 className="text-3xl font-serif font-bold mb-4">{product.name}</h1>
+        <img src={product.image} alt={product.name} className="w-full max-h-96 object-cover mb-4" />
+        <p className="text-lg mb-4">{product.description}</p>
+        <p className="text-xl font-medium mb-4">Price: {formatPrice(product.price)}</p>
+        <h2 className="text-xl font-medium mb-2">Customization Options</h2>
+        <div className="space-y-4">
+          {Object.entries(product.options).map(([optionKey, options]) => (
+            <div key={optionKey}>
+              <label className="block text-lg font-medium mb-2" htmlFor={optionKey}>{optionKey}</label>
+              <select id={optionKey} className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-wood-walnut">
+                {options.map((option) => (
+                  <option key={option} value={option}>{option}</option>
+                ))}
+              </select>
+            </div>
+          ))}
+        </div>
+        <h2 className="text-xl font-medium mt-8 mb-2">Notes</h2>
+        <textarea placeholder="Add notes or customizations..." className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-wood-walnut h-32 resize-y"></textarea>
+      </div>
+    );
+  };
 
 const Shop = () => {
+  const { toast } = useToast();
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [sortBy, setSortBy] = useState(sortOptions[0].value);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [sortBy, setSortBy] = useState("featured");
+  const [cart, setCart] = useState<CartItemType[]>([]);
   const [isVisible, setIsVisible] = useState(false);
-  const [cart, setCart] = useState([]);
-  const cartItemCount = cart.length;
-  const cartTotal = cart.reduce((total, item) => total + (item.product.price * item.quantity), 0);
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const categories = ["All", "Living Room", "Dining Room", "Bedroom", "Office"];
-  const sortOptions = [
-    { value: "featured", label: "Featured" },
-    { value: "price-asc", label: "Price: Low to High" },
-    { value: "price-desc", label: "Price: High to Low" },
-    { value: "newest", label: "Newest" }
-  ];
+  const addToCart = (product: ProductType) => {
+    // Create default selected options (first option for each category)
+    const selectedOptions: Record<string, string> = {};
+    Object.keys(product.options).forEach(optionKey => {
+      selectedOptions[optionKey] = product.options[optionKey][0];
+    });
+
+    // Check if product with same options already exists in cart
+    const existingItemIndex = cart.findIndex(
+      item => item.id === product.id && 
+        Object.keys(selectedOptions).every(
+          key => item.selectedOptions[key] === selectedOptions[key]
+        )
+    );
+
+    if (existingItemIndex !== -1) {
+      // Update quantity if item exists
+      const updatedCart = [...cart];
+      updatedCart[existingItemIndex].quantity += 1;
+      setCart(updatedCart);
+    } else {
+      // Add new item to cart
+      setCart([...cart, {
+        id: Date.now(), // Unique identifier for cart item
+        product,
+        quantity: 1,
+        selectedOptions
+      }]);
+    }
+
+    // Show toast notification
+    toast({
+      title: "Added to cart",
+      description: `${product.name} has been added to your cart.`,
+    });
+  };
+
+  const removeFromCart = (cartItemId: number) => {
+    setCart(cart.filter(item => item.id !== cartItemId));
+  };
+
+  const updateQuantity = (cartItemId: number, newQuantity: number) => {
+    if (newQuantity < 1) return;
+
+    const updatedCart = cart.map(item => {
+      if (item.id === cartItemId) {
+        return { ...item, quantity: newQuantity };
+      }
+      return item;
+    });
+
+    setCart(updatedCart);
+  };
+
+  const cartTotal = cart.reduce((total, item) => {
+    return total + (item.product.price * item.quantity);
+  }, 0);
+
+  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+
+  // Filter and sort products
+  const filteredProducts = activeCategory === "All" 
+    ? products 
+    : products.filter(product => product.category === activeCategory);
+
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    switch (sortBy) {
+      case "priceAsc":
+        return a.price - b.price;
+      case "priceDesc":
+        return b.price - a.price;
+      case "nameAsc":
+        return a.name.localeCompare(b.name);
+      case "newest":
+      default:
+        return 0; // No sorting (maintain original order)
+    }
+  });
 
   useEffect(() => {
-    setIsVisible(true);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
   }, []);
 
-  const formatPrice = (price) => {
-    return `$${price.toLocaleString()}`;
-  };
-
-  const updateQuantity = (itemId, newQuantity) => {
-    if (newQuantity < 1) return;
-    setCart(cart.map(item => 
-      item.id === itemId ? { ...item, quantity: newQuantity } : item
-    ));
-  };
-
-  const removeFromCart = (itemId) => {
-    setCart(cart.filter(item => item.id !== itemId));
-  };
-
-  const sortedProducts = [...products].sort((a, b) => {
-    switch (sortBy) {
-      case "price-asc":
-        return a.price - b.price;
-      case "price-desc":
-        return b.price - a.price;
-      case "newest":
-        return new Date(b.date) - new Date(a.date);
-      default:
-        return 0;
-    }
-  }).filter(product => 
-    activeCategory === "All" || product.category === activeCategory
-  );
-
   return (
-    <div className="min-h-screen flex flex-col"> {/* Added flex-col for layout */}
-      <Navbar /> {/* Added Navbar */}
-      <main className="flex-grow"> {/* Added flex-grow to make main occupy available space */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-serif">Our Collection</h2>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main>
+        {/* Header */}
+        <section className="pt-32 pb-16 bg-secondary/20">
+          <div className="custom-container">
+            <div className="max-w-2xl mx-auto text-center">
+              <h1 className="text-3xl md:text-4xl font-serif font-semibold mb-4">
+                Shop Our Collection
+              </h1>
+              <p className="text-muted-foreground">
+                Browse our selection of handcrafted wooden furniture pieces, ready to ship to your home.
+              </p>
+            </div>
+          </div>
+        </section>
 
-              {/* Mobile Filters Toggle */}
-              <div className="flex gap-4 lg:hidden">
-                <button
+        {/* Shop Content */}
+        <section 
+          ref={sectionRef}
+          className="py-16"
+        >
+          <div className="custom-container">
+            <div className="lg:grid lg:grid-cols-12 lg:gap-8">
+              {/* Mobile Filter Toggle */}
+              <div className="lg:hidden flex justify-between mb-6">
+                <button 
                   onClick={() => setIsFilterOpen(!isFilterOpen)}
-                  className="text-sm font-medium"
+                  className="flex items-center text-sm font-medium bg-secondary/50 hover:bg-secondary px-4 py-2 rounded-md transition-colors"
                 >
+                  <Filter className="h-4 w-4 mr-2" />
                   Filters
+                  {isFilterOpen ? (
+                    <ChevronUp className="h-4 w-4 ml-2" />
+                  ) : (
+                    <ChevronDown className="h-4 w-4 ml-2" />
+                  )}
                 </button>
+
                 <button 
                   onClick={() => setIsCartOpen(true)}
-                  className="relative text-sm font-medium"
+                  className="relative flex items-center text-sm font-medium bg-wood-walnut text-white px-4 py-2 rounded-md transition-colors"
                 >
                   <ShoppingCart className="h-4 w-4 mr-2" />
                   Cart
@@ -88,7 +359,7 @@ const Shop = () => {
                 </button>
               </div>
 
-              {/* Sidebar Filters */}
+              {/* Sidebar Filters (Desktop always visible, Mobile toggleable) */}
               <div className={`lg:col-span-3 lg:block ${isFilterOpen ? 'block' : 'hidden'} mb-8 lg:mb-0`}>
                 <div className="bg-white rounded-lg shadow-sm p-6 sticky top-24">
                   <h3 className="text-lg font-medium mb-4">Filters</h3>
@@ -129,7 +400,7 @@ const Shop = () => {
                     </select>
                   </div>
 
-                  {/* Price Range */}
+                  {/* Price Range (simplified) */}
                   <div>
                     <h4 className="text-sm font-medium mb-3">Price Range</h4>
                     <div className="grid grid-cols-2 gap-2">
@@ -331,3 +602,4 @@ const Shop = () => {
 };
 
 export default Shop;
+export {ProductDetails};
