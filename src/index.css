@@ -141,15 +141,58 @@ html {
 
 /* Enhanced animations */
 .hover-lift {
-  transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1), 
-              box-shadow 0.4s cubic-bezier(0.2, 0, 0, 1);
+  transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+  border: 1px solid transparent;
 }
 
 .hover-lift:hover {
   transform: translateY(-5px) scale(1.01);
+
+/* Enhanced layout utilities */
+.grid-auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.prose-elegant {
+  line-height: 1.8;
+  letter-spacing: -0.011em;
+}
+
+.glass-card {
+  @apply bg-background/95 backdrop-blur-sm border rounded-lg shadow-lg;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  @apply bg-background/98 shadow-xl;
+  transform: translateY(-2px);
+}
+
+/* Image enhancements */
+.img-loading {
+  @apply animate-pulse bg-muted;
+}
+
+.img-hover-zoom {
+  @apply overflow-hidden rounded-lg;
+}
+
+.img-hover-zoom img {
+  @apply transition-transform duration-700 ease-in-out;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
   box-shadow: 
-    0 20px 40px -5px rgba(0, 0, 0, 0.1),
-    0 10px 20px -5px rgba(0, 0, 0, 0.04);
+    0 20px 40px -5px rgba(0, 0, 0, 0.12),
+    0 10px 20px -5px rgba(0, 0, 0, 0.08);
+  border-color: hsl(var(--border));
+  background: linear-gradient(to bottom right, 
+    hsl(var(--background)), 
+    hsl(var(--accent))
+  );
 }
 
 /* Fade in animation for content */
