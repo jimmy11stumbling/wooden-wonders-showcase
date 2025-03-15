@@ -21,25 +21,21 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://instagram.com/cabinetsbydesign" 
+                href="https://instagram.com/woodenwonders" 
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Instagram"
                 className="text-white/70 hover:text-white transition-colors"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.open('https://instagram.com/cabinetsbydesign', '_blank');
-                }}
               >
                 <Instagram size={20} />
               </a>
               <a 
-                href="https://facebook.com/cabinetsbydesign" 
+                href="https://facebook.com/woodenwonders" 
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Facebook"
                 className="text-white/70 hover:text-white transition-colors"
-                onClick={(e) => {
+              >
                   e.preventDefault();
                   window.open('https://facebook.com/cabinetsbydesign', '_blank');
                 }}
