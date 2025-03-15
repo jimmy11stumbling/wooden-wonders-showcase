@@ -1,5 +1,5 @@
 
-export type ProductType = {
+interface ProductType {
   id: number;
   name: string;
   category: string;
@@ -7,9 +7,9 @@ export type ProductType = {
   image: string;
   price: number;
   stock: number;
-  estimatedTime: string;
+  estimatedTime?: string;
   options: Record<string, string[]>;
-};
+}
 
 export const products: ProductType[] = [
   {
@@ -39,15 +39,19 @@ export const products: ProductType[] = [
       finish: ["Natural Oil", "Matte Varnish", "Danish Oil"],
       cushion: ["None", "Leather", "Fabric"]
     }
-  }
-];
-export const products = [
-  {
-    id: 1,
-    name: "Classic Kitchen Cabinet",
-    price: 599.99,
-    description: "Traditional style kitchen cabinet with modern functionality",
-    image: "/furniture-images/cabinet-1.jpg"
   },
-  // Add more products as needed
+  {
+    id: 3,
+    name: "Classic Kitchen Cabinet",
+    category: "Cabinets",
+    description: "Traditional style kitchen cabinet with modern functionality",
+    image: "/furniture-images/cabinet-1.jpg",
+    price: 599.99,
+    stock: 10,
+    estimatedTime: "3-4 weeks",
+    options: {
+      finish: ["Natural", "White", "Gray"],
+      hardware: ["Chrome", "Brass", "Black"]
+    }
+  }
 ];
