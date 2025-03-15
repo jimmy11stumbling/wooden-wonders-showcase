@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 
 // Product data
@@ -60,7 +59,7 @@ const Catalog = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  
+
   const filteredProducts = activeCategory === "All" 
     ? products 
     : products.filter(product => product.category === activeCategory);
@@ -109,7 +108,7 @@ const Catalog = () => {
             Browse our collection of handcrafted wooden furniture, each piece uniquely designed and meticulously crafted to last generations.
           </p>
         </div>
-        
+
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">
           {categories.map((category) => (
@@ -126,25 +125,47 @@ const Catalog = () => {
             </button>
           ))}
         </div>
-        
+
         {/* Products Grid */}
         <div 
           className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${
             isVisible ? 'animate-fade-in' : 'opacity-0'
           }`}
         >
-          {filteredProducts.map((product) => (
-            <div 
-              key={product.id} 
-              className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all hover-lift"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
+            {[
+              {
+                id: 1,
+                name: "Walnut Dining Table",
+                category: "Tables",
+                image: "/attached_assets/sausalito-brown-5-pc-dining-room_4243372P_image-3-2.webp",
+                price: "$2,800"
+              },
+              {
+                id: 2,
+                name: "Classic Cabinet",
+                category: "Cabinets",
+                image: "/attached_assets/acorn-cottage-brown-server_42762787_image-item.webp",
+                price: "$1,200"
+              },
+              {
+                id: 3,
+                name: "Modern Coffee Table",
+                category: "Tables",
+                image: "/attached_assets/cm3319t-det_foa20231.webp",
+                price: "$800"
+              }
+            ].map((product) => (
+              <div 
+                key={product.id} 
+                className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all hover-lift"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
                   <div className="p-6 w-full">
                     <span className="text-white font-medium text-lg">{product.price}</span>
@@ -170,7 +191,7 @@ const Catalog = () => {
             </div>
           ))}
         </div>
-        
+
         {/* View more button */}
         <div className="text-center mt-12">
           <button className="bg-transparent text-wood-walnut hover:bg-wood-walnut/10 border border-wood-walnut/30 font-medium rounded-md px-6 py-3 transition-all hover-lift">
