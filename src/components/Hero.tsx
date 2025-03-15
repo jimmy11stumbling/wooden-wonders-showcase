@@ -1,4 +1,5 @@
-import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
@@ -16,46 +17,33 @@ const Hero = () => {
         <div className="max-w-3xl mx-auto text-center text-white">
           <div className="space-y-6 animate-fade-in">
             <span className="inline-block text-sm uppercase tracking-wider font-medium bg-wood-walnut/90 px-3 py-1 rounded-full">
-              Handcrafted Excellence Since 2013
+              Custom Cabinetry in Laredo
             </span>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold leading-tight md:leading-tight lg:leading-tight">
-              Cabinets by Design <br /> Laredo, TX
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold">
+              Transform Your Space with Custom Cabinets
             </h1>
-
-            <p className="text-base md:text-lg text-white/80 max-w-xl mx-auto text-balance">
-              Laredo's premier custom cabinet maker, crafting bespoke cabinetry for over 10 years. We transform spaces with timeless designs and exceptional craftsmanship.
+            <p className="text-lg text-gray-200 max-w-2xl mx-auto">
+              Expert craftsmanship meets innovative design. Discover our range of custom cabinetry solutions tailored to your unique style and needs.
             </p>
-
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a 
-                href="#catalog" 
-                className="bg-wood-walnut hover:bg-wood-walnut/90 text-white font-medium rounded-md px-6 py-3 transition-all hover-lift"
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                asChild
+                size="lg" 
+                className="bg-wood-walnut hover:bg-wood-walnut/90"
               >
-                Explore Our Collection
-              </a>
-              <a 
-                href="#custom" 
-                className="bg-transparent hover:bg-white/10 text-white border border-white/30 font-medium rounded-md px-6 py-3 transition-all hover-lift"
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
+                <Link to="/contact">Get a Quote</Link>
+              </Button>
+              <Button 
+                asChild
+                size="lg" 
+                variant="outline" 
+                className="border-white text-white hover:bg-white hover:text-wood-walnut"
               >
-                Request Custom Design
-              </a>
+                <Link to="/portfolio">View Portfolio</Link>
+              </Button>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <a href="#about" aria-label="Scroll to about section">
-          <ChevronDown className="text-white/70 h-8 w-8" />
-        </a>
       </div>
     </section>
   );
