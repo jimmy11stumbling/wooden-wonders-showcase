@@ -46,7 +46,7 @@ const Navbar = () => {
             to="/"
             className="text-wood-walnut font-serif text-2xl font-medium tracking-tight"
           >
-            Wooden Wonders
+            Cabinets by Design
           </Link>
           
           {/* Desktop Nav */}
