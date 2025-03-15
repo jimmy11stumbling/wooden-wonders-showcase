@@ -153,7 +153,7 @@ const ProductDetails = ({ product }: { product: ProductType }) => {
     );
   };
 
-const Shop = () => {
+export default function Shop() {
   const { toast } = useToast();
   const [activeCategory, setActiveCategory] = useState("All");
   const [sortBy, setSortBy] = useState(sortOptions[0].value);
@@ -562,14 +562,4 @@ const Shop = () => {
       <Footer />
     </div>
   );
-};
-
-export default function Shop() {
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <Catalog products={products} />
-    </div>
-  );
 }
-
-export {ProductDetails};
