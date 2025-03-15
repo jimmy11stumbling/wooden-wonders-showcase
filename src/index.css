@@ -197,12 +197,17 @@ html {
 }
 
 .product-image {
-  @apply rounded-lg overflow-hidden mb-4;
+  @apply rounded-lg overflow-hidden mb-4 relative;
   aspect-ratio: 4/3;
 }
 
 .product-image img {
-  @apply w-full h-full object-cover;
+  @apply w-full h-full object-cover absolute inset-0;
+  font-family: "object-fit: cover";
+}
+
+.product-card img {
+  @apply max-w-full h-auto transition-all duration-300;
 }
 
   box-shadow: 
