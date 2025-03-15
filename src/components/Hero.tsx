@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+
+import { Link } from 'react-router-dom';
+import { Button } from './ui/button';
 
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <div 
           className="w-full h-full bg-[url('https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=3174')] bg-cover bg-center"
@@ -12,7 +12,6 @@ const Hero = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background" />
       </div>
-
       <div className="custom-container">
         <div className="max-w-3xl mx-auto text-center text-white">
           <div className="space-y-6 animate-fade-in">
