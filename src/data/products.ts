@@ -6,10 +6,9 @@ export const products: ProductType[] = [
     name: "Walnut Dining Table",
     category: "Tables",
     description: "Handcrafted dining table made from solid walnut with dovetail joinery.",
-    image: "/attached_assets/sausalito-brown-5-pc-dining-room_4243372P_image-3-2.webp",
+    image: "/attached_assets/pic1.jfif",
     price: 2800,
     stock: 2,
-    estimatedTime: "6-8 weeks",
     options: {
       size: ["6-Person", "8-Person", "10-Person"],
       finish: ["Natural Oil", "Matte Varnish", "Semi-Gloss"]
@@ -17,15 +16,15 @@ export const products: ProductType[] = [
   },
   {
     id: 2,
-    name: "Server Cabinet",
-    category: "Storage",
-    description: "Elegant server cabinet with ample storage space and classic design.",
-    image: "/attached_assets/acorn-cottage-brown-server_42762787_image-item.webp",
-    price: 1850,
-    stock: 3,
-    estimatedTime: "5-7 weeks",
+    name: "Maple Rocking Chair",
+    category: "Chairs",
+    description: "Comfortable rocking chair crafted from maple with hand-woven seat.",
+    image: "/attached_assets/pic2.jfif",
+    price: 1200,
+    stock: 5,
     options: {
-      finish: ["Natural Oil", "Light Stain", "Dark Stain"]
+      finish: ["Natural Oil", "Matte Varnish", "Danish Oil"],
+      cushion: ["None", "Leather", "Fabric"]
     }
   },
   {
