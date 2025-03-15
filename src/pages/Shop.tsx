@@ -3,7 +3,7 @@ import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ShoppingCart, Filter, ChevronDown, ChevronUp, Minus, Plus, X } from "lucide-react";
-import { Link } from 'react-router-dom'; // Assuming Next.js for routing
+import { Link } from 'react-router-dom'; 
 
 // Products data
 const products = [

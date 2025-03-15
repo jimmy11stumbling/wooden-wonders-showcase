@@ -41,3 +41,13 @@ export const products: ProductType[] = [
     }
   }
 ];
+export const products = [
+  {
+    id: 1,
+    name: "Classic Kitchen Cabinet",
+    price: 599.99,
+    description: "Traditional style kitchen cabinet with modern functionality",
+    image: "/furniture-images/cabinet-1.jpg"
+  },
+  // Add more products as needed
+];
