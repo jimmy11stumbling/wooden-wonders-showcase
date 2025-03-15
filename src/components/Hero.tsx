@@ -1,12 +1,13 @@
+
 import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background image -  Consider replacing with a high-quality image showcasing Laredo, TX or custom cabinetry */}
+      {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <div 
-          className="w-full h-full bg-[url('https://example.com/laredo-cabinetry.jpg')] bg-cover bg-center" {/* Replace with actual image URL */}
+          className="w-full h-full bg-[url('https://example.com/laredo-cabinetry.jpg')] bg-cover bg-center"
           style={{ opacity: 0.9 }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background" />
@@ -24,7 +25,7 @@ const Hero = () => {
             </h1>
 
             <p className="text-base md:text-lg text-white/80 max-w-xl mx-auto text-balance">
-              Laredo's premier custom cabinet maker, crafting bespoke cabinetry for over 10 years.  We transform spaces with timeless designs and exceptional craftsmanship.
+              Laredo's premier custom cabinet maker, crafting bespoke cabinetry for over 10 years. We transform spaces with timeless designs and exceptional craftsmanship.
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
