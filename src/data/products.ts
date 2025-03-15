@@ -20,7 +20,7 @@ export const products: ProductType[] = [
     name: "Walnut Dining Table",
     category: "Tables",
     description: "Handcrafted dining table made from solid walnut with dovetail joinery.",
-    image: "/product-images/pic1.jfif",
+    image: "/product-images/sausalito-brown-5-pc-dining-room_4243372P_image-3-2.webp",
     price: 2800,
     stock: 2,
     estimatedTime: "4-6 weeks",
@@ -34,7 +34,7 @@ export const products: ProductType[] = [
     name: "Modern Sideboard",
     category: "Storage",
     description: "Contemporary sideboard with clean lines and ample storage space.",
-    image: "/product-images/pic2.jfif",
+    image: "/product-images/acorn-cottage-brown-server_42762787_image-item.webp",
     price: 1950,
     stock: 3,
     estimatedTime: "3-5 weeks",
@@ -45,16 +45,16 @@ export const products: ProductType[] = [
   },
   {
     id: 3,
-    name: "Accent Chair",
-    category: "Chairs",
-    description: "Elegant accent chair with premium upholstery and solid wood frame.",
-    image: "/product-images/pic3.jfif",
+    name: "Coffee Table Set",
+    category: "Tables",
+    description: "Elegant coffee table with premium materials and modern design.",
+    image: "/product-images/cm3319t-det_foa20231.webp",
     price: 1200,
     stock: 5,
     estimatedTime: "2-3 weeks",
     options: {
-      fabric: ["Linen", "Velvet", "Leather"],
-      woodFinish: ["Natural", "Dark Oak", "Espresso"]
+      size: ["Standard", "Large"],
+      finish: ["Walnut", "Oak", "Cherry"]
     }
   },
   {
@@ -125,6 +125,20 @@ export const products: ProductType[] = [
     options: {
       size: ["36-inch", "48-inch"],
       finish: ["White", "Gray", "Navy"]
+    }
+  },
+  {
+    id: 3,
+    name: "Accent Chair",
+    category: "Chairs",
+    description: "Elegant accent chair with premium upholstery and solid wood frame.",
+    image: "/product-images/pic3.jfif",
+    price: 1200,
+    stock: 5,
+    estimatedTime: "2-3 weeks",
+    options: {
+      fabric: ["Linen", "Velvet", "Leather"],
+      woodFinish: ["Natural", "Dark Oak", "Espresso"]
     }
   }
 ];
