@@ -1,4 +1,3 @@
-
 interface ProductType {
   id: number;
   name: string;
