@@ -1,5 +1,18 @@
-
 import { type ProductType } from '@/types/product';
+
+export interface ProductType {
+  id: number;
+  name: string;
+  category: string;
+  description: string;
+  image: string;
+  price: number;
+  stock: number;
+  estimatedTime?: string;
+  options: {
+    [key: string]: string[];
+  };
+}
 
 export const products: ProductType[] = [
   {
@@ -7,10 +20,10 @@ export const products: ProductType[] = [
     name: "Walnut Dining Table",
     category: "Tables",
     description: "Handcrafted dining table made from solid walnut with dovetail joinery.",
-    image: "/attached_assets/sausalito-brown-5-pc-dining-room_4243372P_image-3-2.webp",
+    image: "/product-images/pic1.jfif",
     price: 2800,
     stock: 2,
-    estimatedTime: "6-8 weeks",
+    estimatedTime: "4-6 weeks",
     options: {
       size: ["6-Person", "8-Person", "10-Person"],
       finish: ["Natural Oil", "Matte Varnish", "Semi-Gloss"]
@@ -18,234 +31,100 @@ export const products: ProductType[] = [
   },
   {
     id: 2,
-    name: "Server Cabinet",
+    name: "Modern Sideboard",
     category: "Storage",
-    description: "Elegant server cabinet with ample storage space and classic design.",
-    image: "/attached_assets/acorn-cottage-brown-server_42762787_image-item.webp",
-    price: 1850,
+    description: "Contemporary sideboard with clean lines and ample storage space.",
+    image: "/product-images/pic2.jfif",
+    price: 1950,
     stock: 3,
-    estimatedTime: "5-7 weeks",
+    estimatedTime: "3-5 weeks",
     options: {
-      finish: ["Natural Oil", "Light Stain", "Dark Stain"]
+      size: ["48-inch", "60-inch", "72-inch"],
+      finish: ["Natural Oak", "Walnut Stain", "Black"]
     }
   },
   {
     id: 3,
-    name: "Modern Coffee Table",
-    category: "Tables",
-    description: "Contemporary coffee table with sleek design and durable construction.",
-    image: "/attached_assets/cm3319t-det_foa20231.webp",
-    price: 950,
-    stock: 4,
-    estimatedTime: "3-5 weeks",
+    name: "Accent Chair",
+    category: "Chairs",
+    description: "Elegant accent chair with premium upholstery and solid wood frame.",
+    image: "/product-images/pic3.jfif",
+    price: 1200,
+    stock: 5,
+    estimatedTime: "2-3 weeks",
     options: {
-      finish: ["Natural", "Espresso", "Walnut"]
+      fabric: ["Linen", "Velvet", "Leather"],
+      woodFinish: ["Natural", "Dark Oak", "Espresso"]
     }
   },
   {
     id: 4,
-    name: "Custom Kitchen Cabinet",
-    category: "Cabinets",
-    description: "Beautiful custom kitchen cabinet with premium finish.",
-    image: "/attached_assets/pic1.jfif",
-    price: 1200,
-    stock: 5,
-    estimatedTime: "4-6 weeks",
+    name: "Coffee Table Set",
+    category: "Tables",
+    description: "Nested coffee table set with marble tops and brass-finished legs.",
+    image: "/product-images/pic4.jfif",
+    price: 1600,
+    stock: 4,
+    estimatedTime: "3-4 weeks",
     options: {
-      finish: ["Natural", "Dark Stain", "White"]
+      marbleType: ["White Carrara", "Black Marquina"],
+      metalFinish: ["Brass", "Chrome", "Black"]
     }
   },
   {
     id: 5,
-    name: "Modern Wardrobe",
+    name: "Entertainment Unit",
     category: "Storage",
-    description: "Spacious wardrobe with contemporary design.",
-    image: "/attached_assets/pic2.jfif",
-    price: 2500,
-    stock: 3,
-    estimatedTime: "6-8 weeks",
+    description: "Modern entertainment center with cable management and adjustable shelving.",
+    image: "/product-images/pic5.jfif",
+    price: 2200,
+    stock: 2,
+    estimatedTime: "4-6 weeks",
     options: {
-      size: ["Standard", "Large"],
-      finish: ["Natural", "Espresso"]
+      size: ["60-inch", "72-inch"],
+      finish: ["White Oak", "Dark Walnut", "Black"]
     }
   },
   {
     id: 6,
-    name: "Luxury Bathroom Vanity",
-    category: "Cabinets",
-    description: "Elegant bathroom vanity with premium finish.",
-    image: "/attached_assets/pic3.jfif",
-    price: 1800,
-    stock: 4,
-    estimatedTime: "5-7 weeks",
+    name: "Bedroom Set",
+    category: "Bedroom",
+    description: "Complete bedroom set including bed frame, nightstands, and dresser.",
+    image: "/product-images/pic6.jfif",
+    price: 4500,
+    stock: 2,
+    estimatedTime: "6-8 weeks",
     options: {
-      size: ["36-inch", "48-inch"],
-      finish: ["White", "Gray", "Navy"]
+      size: ["Queen", "King"],
+      finish: ["Light Oak", "Cherry", "Espresso"]
     }
   },
   {
     id: 7,
-    name: "Premium Kitchen Set",
-    category: "Cabinets",
-    description: "Complete kitchen storage solution.",
-    image: "/attached_assets/pic4.jfif",
-    price: 3500,
-    stock: 2,
-    estimatedTime: "7-9 weeks",
+    name: "Console Table",
+    category: "Tables",
+    description: "Slim console table perfect for entryways with drawer storage.",
+    image: "/product-images/pic7.jfif",
+    price: 950,
+    stock: 6,
+    estimatedTime: "2-3 weeks",
     options: {
-      layout: ["L-Shape", "U-Shape"],
-      finish: ["White", "Wood Grain"]
+      length: ["36-inch", "48-inch"],
+      finish: ["Natural", "Weathered Gray", "Dark Brown"]
     }
   },
   {
     id: 8,
-    name: "Classic Cabinet Set",
-    category: "Cabinets",
-    description: "Traditional cabinet set with timeless design.",
-    image: "/attached_assets/pic5.jfif",
-    price: 2800,
-    stock: 3,
-    estimatedTime: "6-8 weeks",
-    options: {
-      finish: ["Cherry", "Maple", "Oak"]
-    }
-  },
-  {
-    id: 9,
-    name: "Storage Solutions",
-    category: "Storage",
-    description: "Modern storage cabinet with clean lines.",
-    image: "/attached_assets/pic6.jfif",
-    price: 1600,
-    stock: 4,
-    estimatedTime: "4-6 weeks",
-    options: {
-      size: ["Standard", "Large"],
-      finish: ["White", "Black"]
-    }
-  },
-  {
-    id: 10,
-    name: "Designer Kitchen",
-    category: "Cabinets",
-    description: "Premium kitchen cabinet system.",
-    image: "/attached_assets/pic7.jfif",
-    price: 4500,
-    stock: 2,
-    estimatedTime: "8-10 weeks",
-    options: {
-      layout: ["Custom"],
-      finish: ["Premium Wood", "Custom Color"]
-    }
-  },
-  {
-    id: 11,
-    name: "Modern Bathroom Set",
-    category: "Cabinets",
-    description: "Contemporary bathroom storage solution.",
-    image: "/attached_assets/pic8.jfif",
-    price: 2200,
-    stock: 3,
-    estimatedTime: "5-7 weeks",
-    options: {
-      finish: ["Natural", "Dark Stain", "White"]
-    }
-  },
-  {
-    id: 5,
-    name: "Modern Wardrobe",
-    category: "Storage",
-    description: "Spacious wardrobe with contemporary design and multiple compartments.",
-    image: "/attached_assets/pic2.jfif",
-    price: 2500,
-    stock: 3,
-    estimatedTime: "6-8 weeks",
-    options: {
-      size: ["Standard", "Large"],
-      finish: ["Natural", "Espresso"]
-    }
-  },
-  {
-    id: 6,
     name: "Bathroom Vanity",
-    category: "Cabinets",
-    description: "Elegant bathroom vanity with premium hardware and finish.",
-    image: "/attached_assets/pic3.jfif",
-    price: 1800,
-    stock: 4,
-    estimatedTime: "5-7 weeks",
-    options: {
-      size: ["36-inch", "48-inch"],
-      finish: ["White", "Gray", "Navy"]
-    }
-  },
-  {
-    id: 7,
-    name: "Kitchen Storage System",
-    category: "Cabinets",
-    description: "Complete kitchen storage solution with modern functionality.",
-    image: "/attached_assets/pic4.jfif",
-    price: 3500,
-    stock: 2,
-    estimatedTime: "7-9 weeks",
-    options: {
-      layout: ["L-Shape", "U-Shape"],
-      finish: ["White", "Wood Grain"]
-    }
-  },
-  {
-    id: 8,
-    name: "Traditional Cabinet Set",
-    category: "Cabinets",
-    description: "Classic cabinet set with timeless design.",
-    image: "/attached_assets/pic5.jfif",
-    price: 2800,
-    stock: 3,
-    estimatedTime: "6-8 weeks",
-    options: {
-      finish: ["Cherry", "Maple", "Oak"]
-    }
-  },
-  {
-    id: 9,
-    name: "Modern Storage Cabinet",
     category: "Storage",
-    description: "Contemporary storage solution with clean lines.",
-    image: "/attached_assets/pic6.jfif",
-    price: 1600,
-    stock: 4,
-    estimatedTime: "4-6 weeks",
-    options: {
-      size: ["Standard", "Large"],
-      finish: ["White", "Black"]
-    }
-  },
-  {
-    id: 10,
-    name: "Luxury Kitchen Design",
-    category: "Cabinets",
-    description: "Premium kitchen cabinet system with high-end finishes.",
-    image: "/attached_assets/pic7.jfif",
-    price: 4500,
-    stock: 2,
-    estimatedTime: "8-10 weeks",
-    options: {
-      layout: ["Custom"],
-      finish: ["Premium Wood", "Custom Color"]
-    }
-  },
-  {
-    id: 11,
-    name: "Designer Bathroom Cabinet",
-    category: "Cabinets",
-    description: "Designer bathroom storage solution with modern aesthetics.",
-    image: "/attached_assets/pic8.jfif",
+    description: "Modern bathroom vanity with marble top and soft-close drawers.",
+    image: "/product-images/pic8.jfif",
     price: 2200,
     stock: 3,
-    estimatedTime: "5-7 weeks",
+    estimatedTime: "4-5 weeks",
     options: {
       size: ["24-inch", "36-inch", "48-inch"],
-      finish: ["Modern White", "Gray Oak"]
+      finish: ["White", "Gray Oak", "Espresso"]
     }
   }
 ];
