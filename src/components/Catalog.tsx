@@ -165,6 +165,10 @@ const Catalog = () => {
                     alt={product.name}
                     className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.src = './placeholder.svg';
+                      console.error('Image failed to load:', e.currentTarget.src);
+                    }}
                   />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
                   <div className="p-6 w-full">
