@@ -36,10 +36,6 @@ const Footer = () => {
                 aria-label="Follow us on Facebook"
                 className="text-white/70 hover:text-white transition-colors"
               >
-                  e.preventDefault();
-                  window.open('https://facebook.com/cabinetsbydesign', '_blank');
-                }}
-              >
                 <Facebook size={20} />
               </a>
               <a 
@@ -48,10 +44,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="Follow us on Twitter"
                 className="text-white/70 hover:text-white transition-colors"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.open('https://twitter.com/cabinetsbydesign', '_blank');
-                }}
+                
               >
                 <Twitter size={20} />
               </a>

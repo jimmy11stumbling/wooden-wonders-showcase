@@ -137,7 +137,7 @@ const Contact = () => {
             <div>
               <h3 className="text-xl font-medium mb-4">Connect With Us</h3>
               <div className="flex space-x-4">
-                <a href="#" className="bg-secondary p-3 rounded-full hover:bg-secondary/80 transition-colors">
+                <a href="https://facebook.com/woodenwonders" target="_blank" rel="noopener noreferrer" className="bg-secondary p-3 rounded-full hover:bg-secondary/80 transition-colors">
                   <Facebook className="h-5 w-5" />
                 </a>
                 <a href="#" className="bg-secondary p-3 rounded-full hover:bg-secondary/80 transition-colors">
