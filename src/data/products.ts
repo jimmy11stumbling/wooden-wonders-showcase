@@ -1,4 +1,3 @@
-
 import { type ProductType } from '@/types/product';
 
 export const products: ProductType[] = [
@@ -39,49 +38,21 @@ export const products: ProductType[] = [
     stock: 4,
     estimatedTime: "3-5 weeks",
     options: {
-      finish: ["Natural", "Dark Cherry", "Espresso"]
+      finish: ["Natural", "Espresso", "Walnut"]
     }
   },
   {
     id: 4,
-    name: "Cherry Wood Dining Set",
+    name: "Custom Dining Set",
     category: "Sets",
-    description: "Complete dining set including table and six chairs in rich cherry wood.",
-    image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?q=80&w=2670&auto=format&fit=crop",
+    description: "Complete dining set including table and six chairs in rich hardwood.",
+    image: "/attached_assets/sausalito-brown-5-pc-dining-room_4243372P_image-3-2.webp",
     price: 3200,
     stock: 2,
     estimatedTime: "8-10 weeks",
     options: {
       size: ["6-Piece", "8-Piece"],
-      finish: ["Natural Cherry", "Dark Cherry"]
-    }
-  },
-  {
-    id: 5,
-    name: "Rustic Bookshelf",
-    category: "Storage",
-    description: "Handcrafted bookshelf with adjustable shelves and rustic finish.",
-    image: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?q=80&w=2670&auto=format&fit=crop",
-    price: 1400,
-    stock: 5,
-    estimatedTime: "4-6 weeks",
-    options: {
-      size: ["Tall", "Standard"],
-      finish: ["Rustic Oak", "Weathered Gray"]
-    }
-  },
-  {
-    id: 6,
-    name: "Executive Desk",
-    category: "Office",
-    description: "Professional executive desk with built-in storage and cable management.",
-    image: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?q=80&w=2670&auto=format&fit=crop",
-    price: 2200,
-    stock: 3,
-    estimatedTime: "6-8 weeks",
-    options: {
-      size: ["Standard", "Large"],
-      finish: ["Dark Oak", "Mahogany", "Walnut"]
+      finish: ["Natural", "Dark Stain"]
     }
   }
 ];
