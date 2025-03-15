@@ -20,27 +20,22 @@ const Footer = () => {
               Crafting timeless wooden furniture with passion, precision, and purpose since 2005.
             </p>
             <div className="flex space-x-4">
-              <a 
-                href="https://instagram.com/woodenwonders" 
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link 
+                to="/social/instagram" 
                 aria-label="Follow us on Instagram"
                 className="text-white/70 hover:text-white transition-colors"
               >
                 <Instagram size={20} />
-              </a>
-              <a 
-                href="https://facebook.com/woodenwonders" 
-                target="_blank"
-                rel="noopener noreferrer"
+              </Link>
+              <Link 
+                to="/social/facebook"
                 aria-label="Follow us on Facebook"
                 className="text-white/70 hover:text-white transition-colors"
               >
                 <Facebook size={20} />
-              </a>
-              <a 
-                href="https://twitter.com/cabinetsbydesign" 
-                target="_blank"
+              </Link>
+              <Link 
+                to="/social/twitter"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Twitter"
                 className="text-white/70 hover:text-white transition-colors"
@@ -55,16 +50,36 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-medium mb-4">Quick Links</h3>
             <ul className="space-y-3">
-              {["Home", "About", "Catalog", "Custom", "Testimonials", "Contact"].map((item) => (
-                <li key={item}>
-                  <a 
-                    href={`#${item.toLowerCase()}`} 
-                    className="text-white/70 hover:text-white transition-colors"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link to="/" className="text-white/70 hover:text-white transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-white/70 hover:text-white transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/shop" className="text-white/70 hover:text-white transition-colors">
+                  Catalog
+                </Link>
+              </li>
+              <li>
+                <Link to="/custom" className="text-white/70 hover:text-white transition-colors">
+                  Custom
+                </Link>
+              </li>
+              <li>
+                <Link to="/testimonials" className="text-white/70 hover:text-white transition-colors">
+                  Testimonials
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-white/70 hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
