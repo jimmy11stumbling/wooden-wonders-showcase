@@ -87,8 +87,8 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-medium mb-1">Workshop Address</h3>
                     <p className="text-muted-foreground">
-                      123 Craftsman Lane<br />
-                      Portland, OR 97201<br />
+                      2022 Zaragoza St.<br />
+                      Laredo, TX<br />
                       United States
                     </p>
                     <p className="text-sm mt-2">
@@ -104,8 +104,8 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-medium mb-1">Email Us</h3>
                     <p className="text-muted-foreground">
-                      info@woodenwonders.com<br />
-                      custom@woodenwonders.com
+                      info@cabinetsbydesign.com<br />
+                      custom@cabinetsbydesign.com
                     </p>
                     <p className="text-sm mt-2">
                       We typically respond to emails within 24 hours.
@@ -120,8 +120,8 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-medium mb-1">Call Us</h3>
                     <p className="text-muted-foreground">
-                      (503) 555-0123<br />
-                      Mon-Fri 9am-5pm PST
+                      (956) 645-1575<br />
+                      Mon-Fri 9am-5pm CST
                     </p>
                   </div>
                 </div>

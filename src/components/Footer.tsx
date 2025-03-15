@@ -1,10 +1,9 @@
-
 import { Mail, Phone, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer id="contact" className="bg-wood-walnut text-white/90">
       <div className="custom-container py-16">
@@ -44,7 +43,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
+
           {/* Quick Links */}
           <div>
             <h3 className="text-lg font-medium mb-4">Quick Links</h3>
@@ -61,7 +60,7 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          
+
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-medium mb-4">Contact Us</h3>
@@ -69,8 +68,8 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
                 <span className="text-white/70">
-                  123 Craftsmanship Lane<br />
-                  Woodville, CA 92101
+                  2022 Zaragoza St.<br />
+                  Laredo, TX
                 </span>
               </li>
               <li className="flex items-center">
@@ -87,7 +86,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           {/* Newsletter */}
           <div>
             <h3 className="text-lg font-medium mb-4">Stay Updated</h3>
@@ -112,7 +111,7 @@ const Footer = () => {
             </form>
           </div>
         </div>
-        
+
         <div className="mt-16 pt-8 border-t border-white/20 text-center text-white/60 text-sm">
           <p>© {currentYear} Wooden Wonders. All rights reserved.</p>
         </div>
