@@ -26,7 +26,7 @@ const Navbar = () => {
     { label: "About", path: "/#about", isSection: true },
     { label: "Catalog", path: "/#catalog", isSection: true },
     { label: "Custom", path: "/#custom", isSection: true },
-    { label: "Shop", path: "/shop", isSection: false },
+    { label: "Shop", path: "/products", isSection: false }, //Updated Path
     { label: "Blog", path: "/blog", isSection: false },
     { label: "FAQ", path: "/faq", isSection: false },
     { label: "Contact", path: "/#contact", isSection: true }
