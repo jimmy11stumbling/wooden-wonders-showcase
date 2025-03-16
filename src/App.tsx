@@ -8,11 +8,9 @@ import Blog from "./pages/Blog";
 import FAQ from "./pages/FAQ";
 import Shop from "./pages/Shop";
 import NotFound from "./pages/NotFound";
-import Quote from "./pages/Quote";
-import ProductDetail from './pages/ProductDetail';
-import Portfolio from './pages/Portfolio';
-import About from './pages/About';
-import Custom from './pages/Custom';
+import Quote from "./pages/Quote"; // Added import for Quote page
+import ProductDetail from './pages/ProductDetail'; // Added import for ProductDetail page
+import Portfolio from './pages/Portfolio'; // Added import for Portfolio page
 
 
 const queryClient = new QueryClient();
@@ -25,11 +23,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
           <Route path="/products" element={<Shop />} />
           <Route path="/gallery" element={<Portfolio />} />
           <Route path="/contact" element={<Quote />} />
-          <Route path="/custom" element={<Custom />} />
           <Route path="/product/:productId" element={<ProductDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
