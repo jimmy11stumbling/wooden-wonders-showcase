@@ -34,9 +34,9 @@ const Hero = () => {
               </Button>
               <Button 
                 asChild
-                size="lg" 
-                variant="outline" 
-                className="border-white border-opacity-70 text-white text-opacity-90 hover:bg-white hover:bg-opacity-90 hover:text-wood-walnut transition-all"
+                size="lg"
+                variant="outline"
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium text-white hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition-colors"
               >
                 <Link to="/portfolio">View Portfolio</Link>
               </Button>
