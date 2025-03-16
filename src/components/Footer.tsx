@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Twitter, MapPin, Phone, Mail } from 'lucide-react';
+import { Facebook, Instagram, MapPin, Phone, Mail, TwitterIcon } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://instagram.com/cabinetsbydesignlaredo" 
+                href="https://www.instagram.com/cabinetsbydesignlaredo" 
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Instagram"
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
                 <Instagram size={20} />
               </a>
               <a 
-                href="https://facebook.com/cabinetsbydesignlaredo"
+                href="https://www.facebook.com/cabinetsbydesignlaredo"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Facebook"
@@ -40,13 +40,13 @@ const Footer: React.FC = () => {
                 <Facebook size={20} />
               </a>
               <a 
-                href="https://x.com/cabinetsbydesignlaredo"
+                href="https://twitter.com/cabinetsbydesignlaredo"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Follow us on Twitter"
+                aria-label="Follow us on X (formerly Twitter)"
                 className="text-white/70 hover:text-white transition-colors"
               >
-                <Twitter size={20} />
+                <TwitterIcon size={20} />
               </a>
             </div>
           </div>
