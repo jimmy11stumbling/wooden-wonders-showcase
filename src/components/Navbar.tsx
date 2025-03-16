@@ -1,65 +1,137 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
-export const Navbar = () => {
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Handle scroll events to change navbar style
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Navigation items - updated to include new pages
+  const navItems = [
+    { label: "Home", path: "/", isSection: false },
+    { label: "About", path: "/#about", isSection: true },
+    { label: "Catalog", path: "/#catalog", isSection: true },
+    { label: "Custom", path: "/#custom", isSection: true },
+    { label: "Shop", path: "/shop", isSection: false },
+    { label: "Blog", path: "/blog", isSection: false },
+    { label: "FAQ", path: "/faq", isSection: false },
+    { label: "Contact", path: "/#contact", isSection: true }
+  ];
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "glass-morphism shadow-sm py-3" : "bg-transparent py-5"
+      }`}
+    >
       <div className="custom-container">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="font-serif text-xl font-semibold">Wood Craft</Link>
-          <div className="hidden md:flex space-x-8">
-            <Link to="/" className="text-foreground/80 hover:text-foreground transition-colors">Home</Link>
-            <Link to="/about" className="text-foreground/80 hover:text-foreground transition-colors">About</Link>
-            <Link to="/products" className="text-foreground/80 hover:text-foreground transition-colors">Products</Link>
-            <Link to="/gallery" className="text-foreground/80 hover:text-foreground transition-colors">Gallery</Link>
-            <Link to="/custom" className="text-foreground/80 hover:text-foreground transition-colors">Custom</Link>
-            <Link to="/contact" className="text-foreground/80 hover:text-foreground transition-colors">Contact</Link>
-          </div>
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link 
+            to="/"
+            className="text-wood-walnut font-serif text-2xl font-medium tracking-tight"
+          >
+            Cabinets by Design
+          </Link>
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              item.isSection ? (
+                <a
+                  key={item.label}
+                  href={item.path}
+                  className="text-primary/90 font-medium text-sm hover:text-wood-walnut transition-colors"
+                  onClick={() => {
+                    if (item.path.startsWith('/#')) {
+                      const targetId = item.path.substring(2);
+                      const element = document.getElementById(targetId);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }
+                  }}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.path}
+                  className="text-primary/90 font-medium text-sm hover:text-wood-walnut transition-colors"
+                >
+                  {item.label}
+                </Link>
+              )
+            ))}
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-primary/80 hover:text-wood-walnut transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
-    </nav>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden glass-morphism absolute top-full left-0 w-full animate-fade-in shadow-lg">
+          <div className="custom-container py-5">
+            <nav className="flex flex-col space-y-4">
+              {navItems.map((item) => (
+                item.isSection ? (
+                  <a
+                    key={item.label}
+                    href={item.path}
+                    className="text-primary/90 font-medium text-sm hover:text-wood-walnut transition-colors py-2"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      if (item.path.startsWith('/#')) {
+                        const targetId = item.path.substring(2);
+                        const element = document.getElementById(targetId);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.label}
+                    to={item.path}
+                    className="text-primary/90 font-medium text-sm hover:text-wood-walnut transition-colors py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
+    </header>
   );
 };
 
-function MobileNav() {
-  return (
-    <div className="flex flex-col space-y-4 py-4">
-      <Link
-        to="/"
-        className="text-sm font-medium transition-colors hover:text-primary"
-      >
-        Home
-      </Link>
-      <Link
-        to="/about"
-        className="text-sm font-medium transition-colors hover:text-primary"
-      >
-        About
-      </Link>
-      <Link
-        to="/products"
-        className="text-sm font-medium transition-colors hover:text-primary"
-      >
-        Products
-      </Link>
-      <Link
-        to="/custom"
-        className="text-sm font-medium transition-colors hover:text-primary"
-      >
-        Custom Orders
-      </Link>
-      <Link
-        to="/gallery"
-        className="text-sm font-medium transition-colors hover:text-primary"
-      >
-        Gallery
-      </Link>
-      <Link
-        to="/contact"
-        className="text-sm font-medium transition-colors hover:text-primary"
-      >
-        Contact
-      </Link>
-    </div>
-  );
-}
+export default Navbar;
