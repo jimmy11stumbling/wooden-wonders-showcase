@@ -16,14 +16,14 @@ const Footer: React.FC = () => {
               to="/"
               className="text-white font-serif text-2xl font-medium tracking-tight mb-4 inline-block"
             >
-              Wooden Wonders
+              Cabinets By Design
             </Link>
             <p className="text-white/70 mt-4 mb-6">
-              Crafting timeless wooden furniture with passion, precision, and purpose since 2005.
+              Creating beautiful custom cabinets and furniture with quality craftsmanship since 1995.
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://instagram.com/woodenwonders" 
+                href="https://instagram.com/cabinetsbydesign" 
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Instagram"
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
                 <Instagram size={20} />
               </a>
               <a 
-                href="https://facebook.com/woodenwonders"
+                href="https://facebook.com/cabinetsbydesign"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Facebook"
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
                 <Facebook size={20} />
               </a>
               <a 
-                href="https://twitter.com/woodenwonders"
+                href="https://twitter.com/cabinetsbydesign"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Twitter"
@@ -67,18 +67,18 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/shop" className="text-white/70 hover:text-white transition-colors">
-                  Catalog
+                <Link to="/products" className="text-white/70 hover:text-white transition-colors">
+                  Products
                 </Link>
               </li>
               <li>
-                <Link to="/custom" className="text-white/70 hover:text-white transition-colors">
-                  Custom Orders
+                <Link to="/gallery" className="text-white/70 hover:text-white transition-colors">
+                  Gallery
                 </Link>
               </li>
               <li>
-                <Link to="/testimonials" className="text-white/70 hover:text-white transition-colors">
-                  Testimonials
+                <Link to="/contact" className="text-white/70 hover:text-white transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>
