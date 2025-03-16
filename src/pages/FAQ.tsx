@@ -142,3 +142,86 @@ const FAQ = () => {
 };
 
 export default FAQ;
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
+
+const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border-b border-gray-200 last:border-0">
+      <button
+        className="flex justify-between items-center w-full py-4 text-left"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className="font-medium text-lg">{question}</span>
+        <ChevronDown
+          className={`transform transition-transform ${
+            isOpen ? 'rotate-180' : ''
+          }`}
+        />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <p className="pb-4 text-muted-foreground">{answer}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+const FAQ = () => {
+  const faqs = [
+    {
+      question: "How long does a custom furniture piece take to complete?",
+      answer: "The timeframe varies depending on the complexity of the design, materials, and our current workload. A simple piece might take 4-6 weeks, while more complex projects can take 8-12 weeks. During our initial consultation, we'll provide you with a specific timeline for your project."
+    },
+    {
+      question: "Can I request modifications to pieces I see in your catalog?",
+      answer: "Absolutely! Our catalog pieces can be customized to your preferences. We can modify dimensions, wood types, finishes, and details to suit your needs. Simply let us know what changes you'd like when making an inquiry."
+    },
+    {
+      question: "Do you offer delivery and installation services?",
+      answer: "Yes, we offer white-glove delivery and professional installation for all our furniture pieces. Local delivery is available within a 50-mile radius of our workshop. For destinations beyond this range, we work with specialized furniture shipping partners to ensure safe delivery."
+    },
+    {
+      question: "What types of wood do you typically work with?",
+      answer: "We primarily work with sustainable hardwoods including walnut, oak, maple, cherry, and ash. We also offer reclaimed wood options. For specialty projects, we can source exotic woods upon request, though we emphasize environmentally responsible sourcing for all our materials."
+    },
+    {
+      question: "How do I care for and maintain my wooden furniture?",
+      answer: "We provide detailed care instructions with each piece. Generally, dust regularly with a soft cloth, avoid direct sunlight, maintain consistent room humidity, and clean with appropriate wood cleaners. We also offer maintenance services and can provide specific care recommendations based on your piece's wood type and finish."
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-secondary/50 to-secondary/10 pt-20">
+      <div className="custom-container py-12">
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-4xl font-serif font-semibold mb-6">
+            Frequently Asked Questions
+          </h1>
+          <p className="text-muted-foreground mb-8">
+            Find answers to common questions about our custom furniture and services.
+          </p>
+          <div className="bg-card rounded-lg p-6">
+            {faqs.map((faq, index) => (
+              <FAQItem key={index} question={faq.question} answer={faq.answer} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FAQ;
