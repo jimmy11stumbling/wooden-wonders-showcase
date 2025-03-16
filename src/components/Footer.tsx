@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://instagram.com/cabinetsbydesign" 
+                href="https://instagram.com/cabinetsbydesignlaredo" 
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Instagram"
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
                 <Instagram size={20} />
               </a>
               <a 
-                href="https://facebook.com/cabinetsbydesign"
+                href="https://facebook.com/cabinetsbydesignlaredo"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Facebook"
@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
                 <Facebook size={20} />
               </a>
               <a 
-                href="https://twitter.com/cabinetsbydesign"
+                href="https://x.com/cabinetsbydesignlaredo"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Twitter"
