@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter, MapPin, Phone, Mail } from 'lucide-react';
@@ -55,29 +54,29 @@ const Footer: React.FC = () => {
           {/* Quick Links */}
           <div>
             <h3 className="text-lg font-medium mb-4">Quick Links</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3" role="navigation" aria-label="Footer Navigation">
               <li>
-                <Link to="/" className="text-white/70 hover:text-white transition-colors">
+                <Link to="/" className="text-white/70 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 rounded">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-white/70 hover:text-white transition-colors">
+                <Link to="/about" className="text-white/70 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 rounded">
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/products" className="text-white/70 hover:text-white transition-colors">
+                <Link to="/products" className="text-white/70 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 rounded">
                   Products
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="text-white/70 hover:text-white transition-colors">
+                <Link to="/gallery" className="text-white/70 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 rounded">
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-white/70 hover:text-white transition-colors">
+                <Link to="/contact" className="text-white/70 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 rounded">
                   Contact
                 </Link>
               </li>
