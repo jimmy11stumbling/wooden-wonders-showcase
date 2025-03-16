@@ -194,9 +194,12 @@ const Catalog = () => {
 
         {/* View more button */}
         <div className="text-center mt-12">
-          <button className="bg-transparent text-wood-walnut hover:bg-wood-walnut/10 border border-wood-walnut/30 font-medium rounded-md px-6 py-3 transition-all hover-lift">
+          <Link 
+            to="/products"
+            className="inline-block bg-transparent text-wood-walnut hover:bg-wood-walnut/10 border border-wood-walnut/30 font-medium rounded-md px-6 py-3 transition-all hover-lift"
+          >
             View Full Collection
-          </button>
+          </Link>
         </div>
       </div>
     </section>
