@@ -175,7 +175,7 @@ const Shop = () => {
 
                 {/* Products Grid */}
                 <div 
-                  className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${
+                  className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${
                     isVisible ? 'animate-fade-in' : 'opacity-0'
                   }`}
                 >
@@ -185,18 +185,19 @@ const Shop = () => {
                       key={product.id} 
                       className="group relative block"
                     >
-                      <div className="aspect-square overflow-hidden rounded-lg bg-secondary/5">
+                      <div className="aspect-square overflow-hidden rounded-lg bg-secondary/5 shadow-sm">
                         <img
                           src={product.image}
                           alt={product.name}
                           className="h-full w-full object-cover transition-transform group-hover:scale-105"
                         />
                       </div>
-                      <div className="mt-4 space-y-1">
-                        <h3 className="text-sm font-medium">{product.name}</h3>
+                      <div className="mt-4 space-y-2">
+                        <h3 className="text-base font-medium">{product.name}</h3>
                         <p className="text-sm text-muted-foreground">${product.price.toLocaleString()}</p>
-                        <div className="mt-2 invisible group-hover:visible">
-                          <span className="text-xs text-wood-walnut">View Details →</span>
+                        <p className="text-xs text-muted-foreground">{product.category}</p>
+                        <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <span className="text-sm text-wood-walnut font-medium">View Details →</span>
                         </div>
                       </div>
                     </Link>
