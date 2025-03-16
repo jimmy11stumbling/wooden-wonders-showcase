@@ -1,8 +1,8 @@
 
-import { useState } from 'react';
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const Quote = () => {
   const [formData, setFormData] = useState({
@@ -75,31 +75,32 @@ const Quote = () => {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  placeholder="your@email.com"
+                  placeholder="your.email@example.com"
                   required
                 />
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium mb-2">Phone</label>
-              <Input
-                type="tel"
-                value={formData.phone}
-                onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                placeholder="Your phone number"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-2">Project Type</label>
-              <Input
-                type="text"
-                value={formData.projectType}
-                onChange={(e) => setFormData({...formData, projectType: e.target.value})}
-                placeholder="e.g., Dining Table, Cabinet, Bookshelf"
-                required
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium mb-2">Phone</label>
+                <Input
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  placeholder="(123) 456-7890"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Project Type</label>
+                <Input
+                  type="text"
+                  value={formData.projectType}
+                  onChange={(e) => setFormData({...formData, projectType: e.target.value})}
+                  placeholder="e.g., Kitchen Cabinets, Custom Table"
+                  required
+                />
+              </div>
             </div>
 
             <div>
@@ -108,7 +109,7 @@ const Quote = () => {
                 type="text"
                 value={formData.description}
                 onChange={(e) => setFormData({...formData, description: e.target.value})}
-                placeholder="Describe your project"
+                placeholder="Please describe your project requirements"
                 required
               />
             </div>
@@ -120,7 +121,7 @@ const Quote = () => {
                   type="text"
                   value={formData.budget}
                   onChange={(e) => setFormData({...formData, budget: e.target.value})}
-                  placeholder="Your budget range"
+                  placeholder="e.g., $5,000 - $10,000"
                 />
               </div>
               <div>
@@ -129,18 +130,18 @@ const Quote = () => {
                   type="text"
                   value={formData.timeline}
                   onChange={(e) => setFormData({...formData, timeline: e.target.value})}
-                  placeholder="When do you need it?"
+                  placeholder="When do you need it by?"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Dimensions</label>
+              <label className="block text-sm font-medium mb-2">Dimensions (if applicable)</label>
               <Input
                 type="text"
                 value={formData.dimensions}
                 onChange={(e) => setFormData({...formData, dimensions: e.target.value})}
-                placeholder="Required dimensions if applicable"
+                placeholder="e.g., 72"W x 36"D x 30"H"
               />
             </div>
 
