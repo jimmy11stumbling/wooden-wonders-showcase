@@ -1,0 +1,39 @@
+Here’s an optimized prompt to guide the language model effectively in creating fully functional and production-ready websites:
+
+---
+
+**Prompt for Language Model**:
+
+"Design a complete website with the following requirements:  
+
+1. **Fully Functional Components**:
+   - Ensure all links, buttons, and windows are operational. For example, links must navigate to the correct pages or perform the intended actions without errors.  
+   - Buttons should have clear hover states and accessible labeling (e.g., ARIA labels) to enhance usability.
+
+2. **Production Quality Standards**:
+   - Implement responsive design for optimal performance on all device types (mobile, tablet, desktop).  
+   - Adhere to web development best practices, including clean and well-documented code.
+
+3. **Detailed Design Features**:
+   - Use consistent and visually appealing design elements, including brand-specific colors, fonts, and animations.  
+   - Buttons and links should feature interactive feedback, such as hover effects and active states.  
+   - Incorporate clear calls-to-action to improve user engagement.
+
+4. **Accessibility**:
+   - Ensure compliance with accessibility standards such as WCAG 2.1.  
+   - Include keyboard navigation and screen reader compatibility for all interactive elements.
+
+5. **Error Handling and Validation**:
+   - Test all links and buttons to ensure there are no broken links or functionality issues.  
+   - Add error messages for invalid inputs where forms are used.
+
+6. **Customization and Feedback**:
+   - Allow customization of content (e.g., text, images) for scalability.  
+   - Provide a summary or code snippets for review at each stage of development to ensure alignment with requirements.
+
+7. **Specific Needs**:
+   - [Include your specific requirements, such as features, components, or integrations (e.g., Google Maps for locations, dynamic forms, etc.)].
+
+---
+
+This structure ensures that the language model covers functionality, production readiness, and usability comprehensively. Let me know if you’d like adjustments or additional sections!
