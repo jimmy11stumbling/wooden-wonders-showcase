@@ -58,17 +58,24 @@ const FAQ = () => {
   const [activeCategory, setActiveCategory] = useState("All Questions");
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen relative pt-20">
+      <div className="absolute inset-0 -z-10">
+        <div 
+          className="w-full h-full bg-[url('https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=3174')] bg-cover bg-center"
+          style={{ opacity: 0.9 }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background" />
+      </div>
       <Navbar />
       <main>
         {/* Header */}
-        <section className="pt-32 pb-16 bg-secondary/20">
+        <section className="pt-32 pb-16">
           <div className="custom-container">
             <div className="max-w-2xl mx-auto text-center">
-              <h1 className="text-3xl md:text-4xl font-serif font-semibold mb-4">
+              <h1 className="text-3xl md:text-4xl font-serif font-semibold mb-4 text-white">
                 Frequently Asked Questions
               </h1>
-              <p className="text-muted-foreground">
+              <p className="text-gray-200">
                 Find answers to common questions about our custom wooden furniture, ordering process, and more.
               </p>
             </div>
@@ -88,7 +95,7 @@ const FAQ = () => {
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                       activeCategory === category
                         ? "bg-wood-walnut text-white"
-                        : "bg-secondary hover:bg-secondary/70 text-foreground"
+                        : "bg-secondary hover:bg-secondary/70 text-white"
                     }`}
                   >
                     {category}
@@ -114,8 +121,8 @@ const FAQ = () => {
 
               {/* Still have questions */}
               <div className="mt-12 text-center">
-                <h3 className="text-xl font-serif font-medium mb-3">Still have questions?</h3>
-                <p className="text-muted-foreground mb-6">We're here to help with any questions about our custom wooden furniture.</p>
+                <h3 className="text-xl font-serif font-medium mb-3 text-white">Still have questions?</h3>
+                <p className="text-gray-200 mb-6">We're here to help with any questions about our custom wooden furniture.</p>
                 <a 
                   href="#contact" 
                   className="inline-block bg-wood-walnut hover:bg-wood-walnut/90 text-white font-medium rounded-md px-6 py-3 transition-all hover-lift"
